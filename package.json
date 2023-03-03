@@ -44,5 +44,13 @@
   "gitHooks": {
     "pre-commit": "lint-staged",
     "commit-msg": "commitlint -eV"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged",
+      "pre-add": "lint-staged",
+      "pre-push": "lint-staged"
+    }
   }
 }
