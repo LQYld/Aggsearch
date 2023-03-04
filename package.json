@@ -37,7 +37,8 @@
     "*.{js,ts,jsx,tsx}": [
       "prettire --write",
       "eslint lint --fix"
-    ]
+    ],
+    "*.md": ["prettier --write"]
   },
   "husky": {
     "hooks": {
