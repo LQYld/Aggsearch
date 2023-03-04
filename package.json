@@ -26,11 +26,8 @@
     "@commitlint/config-conventional": "^17.4.4",
     "autoprefixer": "^10.4.13",
     "commitizen": "^4.3.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
     "tailwindcss": "^3.2.7"
   },
   "lint-staged": {
@@ -38,12 +35,9 @@
       "stylelint --fix"
     ],
     "*.{js,ts,jsx,tsx}": [
+      "prettire --write",
       "eslint lint --fix"
     ]
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "commitlint -eV"
   },
   "husky": {
     "hooks": {
