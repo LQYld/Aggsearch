@@ -1,4 +1,2 @@
-test git commit lint
+test github aciton ci
 666
-11111
-2222
