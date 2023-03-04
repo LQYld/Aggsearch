@@ -1,4 +1,1 @@
-test github aciton ci
-666
-
-aaaaaaaaaaaaaaaa
+test aciton ci rule
