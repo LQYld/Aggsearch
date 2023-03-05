@@ -10,9 +10,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: pnpm
 
       - name: Install Deps # 安装项目依赖
-        run: npm install
+        run: pnpm install
 
       - name: lint # 项目构建
-        run: npm run lint
+        run: pnpm lint
