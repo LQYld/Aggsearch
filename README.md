@@ -1,2 +1,1 @@
-test aciton ci rule
-okok
+update github action
