@@ -1,7 +1,11 @@
+'use client'
+import Header from '../components/header'
 export default function Home() {
   return (
-    <h1 className="text-3xl font-bold underline text-red-800">
-      Hello, Next.js 111222!
-    </h1>
+    <>
+      <div className="flex-1 m-5">
+        <Header />
+      </div>
+    </>
   )
 }
