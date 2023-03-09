@@ -12,7 +12,8 @@
     "stylelint:fix": "stylelint \"./**/*.{css,less,vue,html}\" --fix",
     "format": "prettier --write \"./**/*.{html,ts,js,json,md}\"",
     "prepare": "husky install",
-    "test": "jest test"
+    "test": "jest test --passWithNoTests --coverage",
+    "ci": "npm run lint && npm run stylelint && npm run test"
   },
   "dependencies": {
     "@douyinfe/semi-ui": "^2.30.1",
