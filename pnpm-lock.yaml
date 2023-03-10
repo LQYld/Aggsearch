@@ -6,6 +6,7 @@ specifiers:
   '@douyinfe/semi-ui': ^2.30.1
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^14.0.0
+  '@types/jest': ^29.4.0
   '@types/node': 18.14.2
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
@@ -54,6 +55,7 @@ devDependencies:
   '@commitlint/config-conventional': registry.npmmirror.com/@commitlint/config-conventional/17.4.4
   '@testing-library/jest-dom': registry.npmmirror.com/@testing-library/jest-dom/5.16.5
   '@testing-library/react': registry.npmmirror.com/@testing-library/react/14.0.0_biqbaboplfbrettd7655fr4n2y
+  '@types/jest': registry.npmmirror.com/@types/jest/29.4.0
   '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.54.0_ycpbpc6yetojsgtrx3mwntkhsu
   autoprefixer: registry.npmmirror.com/autoprefixer/10.4.13_postcss@8.4.21
   eslint-config-prettier: registry.npmmirror.com/eslint-config-prettier/8.6.0_eslint@8.35.0
