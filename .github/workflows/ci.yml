@@ -17,5 +17,5 @@ jobs:
       - name: Install Deps # 安装项目依赖
         run: pnpm install
 
-      - name: lint # 项目构建
+      - name: run ci # 项目构建
         run: pnpm ci
