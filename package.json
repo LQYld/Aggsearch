@@ -59,7 +59,7 @@
       "stylelint --fix"
     ],
     "*.{js,ts,jsx,tsx}": [
-      "pnpm run lint"
+      "npm run lint"
     ]
   }
 }
