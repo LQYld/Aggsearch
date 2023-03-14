@@ -1,12 +1,18 @@
 @import url("~@douyinfe/semi-ui/dist/css/semi.min.css");
+@import url("animate.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+:root{
+  --basebgc: #e8e8e8;
+}
+
 body{
   display: flex;
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
-  background-color: #f5f7fb;
+  background-color: var(--basebgc);
 }

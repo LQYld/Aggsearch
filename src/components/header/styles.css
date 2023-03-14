@@ -1,7 +1,7 @@
 .header-card {
   width: 190px;
   height: 254px;
-  background: #f5f7fb;
+  background: var(--basebgc);
   border-radius: 30px;
   box-shadow: 15px 15px 30px #bebebe,
              -15px -15px 30px #fff;

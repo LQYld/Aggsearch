@@ -1,19 +1,14 @@
 .cardm {
-  position: absolute;
-  top: 46.64%;
-  left: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .card {
-  position: absolute;
   z-index: 2;
   width: 250px;
-  height: 130px;
+  height: 80px;
   color: black;
-  background: whitesmoke;
+  background: var(--basebgc);
   border-radius: 25px;
   transition: .4s ease-in-out;
 }
@@ -24,10 +19,11 @@
 }
 
 .main {
-  position: relative;
-  top: -3em;
-  left: 4.3em;
-  font-size: 2em;
+  font-size: 1.2em;
+}
+
+.main-date-time{
+  font-size: 12px;
 }
 
 .mainsub {
@@ -42,11 +38,13 @@
   z-index: -1;
   display: flex;
   width: 240px;
-  height: 130px;
-  background: white;
+  height: 80px;
+  background: var(--basebgc);
   border-radius: 35px;
   transition: .4s ease-in-out;
   flex-direction: row;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
 }
 
 .card:hover {
@@ -55,37 +53,16 @@
 }
 
 .card:hover + .card2 {
-  height: 300px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  height: 150px;
+  border-bottom-left-radius: 35;
+  border-bottom-right-radius: 35;
+  background: var(--basebgc);
+  box-shadow: 5px 5px 17px #c8c8c8,
+  -5px -5px 17px #fff;
 }
 
 .card:hover + .card2 .lower {
-  top: 20.2em;
-}
-
-.upper {
-  position: relative;
-  top: 0.5em;
-  left: 1.8em;
-  display: flex;
-  color: black;
-  flex-direction: row;
-  gap: 4em;
-}
-
-.humiditytext {
-  position: relative;
-  top: 2.7em;
-  left: 3.6em;
-  font-size: 0.6em;
-}
-
-.airtext {
-  position: relative;
-  top: 2.7em;
-  left: 3.8em;
-  font-size: 0.6em;
+  top: 7em;
 }
 
 .lower {
@@ -107,21 +84,4 @@
 
 .realfeel {
   margin-right: 1.8em;
-}
-
-.card3 {
-  position: absolute;
-  top: 4.7em;
-  left: -2.4em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 240px;
-  height: 30px;
-  font-size: 1.24em;
-  background: limegreen;
-  transition: .4s ease-in-out;
-  flex-direction: row;
-  border-bottom-left-radius: 35px;
-  border-bottom-right-radius: 35px;
 }
