@@ -1,0 +1,64 @@
+.segmented-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+ 
+.segmented-control input {
+  display: none;
+}
+
+.segmented-control > input:checked + label {
+  color: var(--primary);
+  transition: all 0.5s ease;
+}
+
+.segmented-control-1,
+.segmented-control-2,
+.segmented-control-3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+  font-size: 16px;
+  color: var(--grey-dark);
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.segmented-control-1:hover,
+.segmented-control-2:hover,
+.segmented-control-3:hover {
+  color: var(--primary);
+}
+
+.segmented-control-color{
+  position: absolute;
+  width: 80px;
+  height: 28px;
+  border-radius: 8px;
+  box-shadow: var(--inner-shadow);
+  pointer-events: none;
+}
+
+.segmented-control-color-weather {
+  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.segmented-control-color-clock {
+  transform: translateX(80px);
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.segmented-control-color-other {
+  transform: translateX(80px);
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}

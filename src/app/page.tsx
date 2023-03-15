@@ -12,7 +12,7 @@ export default function Home() {
           <div className="">
             <LogoComponent />
           </div>
-          <div className="m-8">
+          <div className="m-2">
             <SearchCenterComponent />
           </div>
         </div>
