@@ -17,6 +17,19 @@ export default function MenuTabComponent() {
         return 'segmented-control-color-other'
     }
   }
+  const AdapterAssembly = (type: RADIO_TYPE) => {
+    switch (type) {
+      case RADIO_TYPE.CLOCK:
+        return (
+          <div className="animate__animated animate__fadeIn">
+            <Clock />
+          </div>
+        )
+
+      default:
+        return null
+    }
+  }
   return (
     <div className="relative">
       <div className={styles['segmented-control']}>
@@ -78,7 +91,7 @@ export default function MenuTabComponent() {
         ></div>
       </div>
       <div className={`${styles.chip} w-full pt-14 pb-4`}>
-        <Clock />
+        {AdapterAssembly(checked)}
       </div>
     </div>
   )

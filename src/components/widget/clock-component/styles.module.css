@@ -25,7 +25,7 @@
 
 .hours {
   width: 5px;
-  height: 50px;
+  height: 46px;
   background: var(--grey-light-3);
 }
 
@@ -79,13 +79,17 @@
 }
 
 .marker-1, .marker-2 {
-  left: 5.6rem;
+  right: 0;
+  left: 0;
+  margin: auto;
   width: .2rem;
   height: .6rem;
 }
 
 .marker-3, .marker-4 {
-  top: 5.6rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
   width: .6rem;
   height: .2rem;
 }
