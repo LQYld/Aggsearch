@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { RADIO_TYPE } from './enum'
+import Clock from '@/components/widget/clock-component'
 import styles from './styles.module.css'
 export default function MenuTabComponent() {
-  const [checked, setChecked] = useState(RADIO_TYPE.WEATHER)
+  const [checked, setChecked] = useState(RADIO_TYPE.CLOCK)
   const handlerTabClick = (type: RADIO_TYPE) => {
     setChecked(type)
   }
@@ -76,8 +77,8 @@ export default function MenuTabComponent() {
           }`}
         ></div>
       </div>
-      <div className={`${styles.chip} w-full`}>
-        <p>Neumorphic Design</p>
+      <div className={`${styles.chip} w-full pt-14 pb-4`}>
+        <Clock />
       </div>
     </div>
   )
