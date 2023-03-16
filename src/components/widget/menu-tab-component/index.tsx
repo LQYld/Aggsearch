@@ -6,8 +6,18 @@ export default function MenuTabComponent() {
   const handlerTabClick = (type: RADIO_TYPE) => {
     setChecked(type)
   }
+  const getBorderBoxCssName = (type: RADIO_TYPE) => {
+    switch (type) {
+      case RADIO_TYPE.WEATHER:
+        return 'segmented-control-color-weather'
+      case RADIO_TYPE.CLOCK:
+        return 'segmented-control-color-clock'
+      case RADIO_TYPE.OTHER:
+        return 'segmented-control-color-other'
+    }
+  }
   return (
-    <div>
+    <div className="relative">
       <div className={styles['segmented-control']}>
         <input
           type="radio"
@@ -60,7 +70,14 @@ export default function MenuTabComponent() {
           <p>{RADIO_TYPE.OTHER}</p>
         </label>
 
-        <div className={styles['segmented-control-color']}></div>
+        <div
+          className={`${styles['segmented-control-color']} ${
+            styles[getBorderBoxCssName(checked)]
+          }`}
+        ></div>
+      </div>
+      <div className={`${styles.chip} w-full`}>
+        <p>Neumorphic Design</p>
       </div>
     </div>
   )

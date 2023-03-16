@@ -1,8 +1,9 @@
 .segmented-control {
   position: relative;
+  z-index: 66;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 5px;
   height: 40px;
   border-radius: 10px;
   box-shadow: var(--shadow);
@@ -42,7 +43,7 @@
 .segmented-control-color{
   position: absolute;
   width: 80px;
-  height: 28px;
+  height: 30px;
   border-radius: 8px;
   box-shadow: var(--inner-shadow);
   pointer-events: none;
@@ -59,6 +60,28 @@
 }
 
 .segmented-control-color-other {
-  transform: translateX(80px);
+  transform: translateX(160px);
   transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.chip {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: var(--shadow);
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  justify-self: center;
+}
+
+.chip p {
+  display: flex;
+  align-items: center;
+  font-size: .9rem;
+  color: var(--grey-dark);
 }
