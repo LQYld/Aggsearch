@@ -1,0 +1,36 @@
+.content {
+  position: fixed;
+  bottom: 25px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.content-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 4px;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 1rem 0 rgb(0 0 0 / 10%);
+}
+
+.content-div::before {
+  background-color: rgb(255 255 255 / 30%);
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  content: "";
+}
+
+.content dd {
+  padding: 5px 10px;
+}
+
+.content dd img{
+  /* margin: 0 5px; */
+  width: 40px;
+  height: 40px;
+}
