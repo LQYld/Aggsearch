@@ -38,6 +38,21 @@ export default function ProgramDockComponent() {
       imageUrl: '/xiecheng.png',
       value: 'xiecheng',
       url: 'https://www.ctrip.com/'
+    },
+    {
+      imageUrl: '/dongchedi.png',
+      value: 'dongchedi',
+      url: 'https://www.dongchedi.com/'
+    },
+    {
+      imageUrl: '/douban.png',
+      value: 'douban',
+      url: 'https://www.douban.com/'
+    },
+    {
+      imageUrl: '/zhihu.png',
+      value: 'zhihu',
+      url: 'https://www.zhihu.com/'
     }
   ])
   const mousemoverFunc = (e) => {
@@ -50,7 +65,7 @@ export default function ProgramDockComponent() {
       const gapX = clientX - x
       const gapY = clientY - y
       const gap = Math.sqrt(Math.pow(gapX, 2) + Math.pow(gapY, 2))
-      let val = 1 - gap / (dd.offsetWidth * 7)
+      let val = 1 - gap / (dd.offsetWidth * logoList.length)
       if (val < 0.6) {
         val = 0.6
       }
