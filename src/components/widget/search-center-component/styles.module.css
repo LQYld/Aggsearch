@@ -1,7 +1,5 @@
 .search-list{
   width: 580px;
-  min-height: 300px;
-  max-height: 300px;
   background: var(--f2f2f3);
   border-radius: 12px;
   box-shadow: inset 5px 5px 10px var(--grey-light-2),
@@ -74,4 +72,49 @@
 .form-input:focus {
   outline: none;
   box-shadow: 0.3rem 0.3rem 0.6rem var(--grey-light-2), -0.2rem -0.2rem 0.5rem var(--white);
+}
+
+.chip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  justify-self: center;
+}
+
+.chip:hover{
+  box-shadow: var(--inner-shadow);
+}
+
+.chip:hover p{
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.chip p{
+  font-size: 14px;
+  color: var(--grey-dark);
+}
+
+.search-list::-webkit-scrollbar {
+  /* 整体样式 */
+  width: 10px; 
+  height: 9px;
+}
+
+.search-list::-webkit-scrollbar-track {
+  /* background: #ededed; */
+  background: var(--basebgc);
+  border-radius: 10px;
+
+  /* 轨道 */
+  box-shadow: var(--inner-shadow);
+}
+
+.search-list::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+
+  /* 滚动条小方块 */
+  border-radius: 10px
 }

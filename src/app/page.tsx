@@ -3,7 +3,6 @@ import Header from '@/components/header'
 import SearchCenterComponent from '@/components/widget/search-center-component'
 import LogoComponent from '@/components/widget/logo-component'
 import ProgramDockComponent from '@/components/widget/program-dock-component'
-// import styles from './styles.module.css'
 export default function Home() {
   return (
     <>
