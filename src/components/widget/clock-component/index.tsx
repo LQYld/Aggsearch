@@ -1,18 +1,18 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 export default function ClockComponent() {
   /*  clock */
-  const hours = useRef(null)
-  const minutes = useRef(null)
-  const seconds = useRef(null)
+  const today = new Date()
+  const initHours = (today.getHours() % 12) + today.getMinutes() / 59 // 22 % 12 = 10pm
+  const initMinutes = today.getMinutes() // 0 - 59
+  const initSeconds = today.getSeconds()
+  const [hours, setHours] = useState(initHours * 30)
+  const [minutes, setMinutes] = useState(initMinutes * 6)
+  const [seconds, setSeconds] = useState(initSeconds * 6)
   const rotation = (target, val) => {
-    target.style.transform = `rotate(${val}deg)`
+    target(val)
   }
   const clock = () => {
-    if (!(hours.current && minutes.current && seconds.current)) {
-      setTimeout(clock, 500)
-      return
-    }
     const today = new Date()
     let h = (today.getHours() % 12) + today.getMinutes() / 59 // 22 % 12 = 10pm
     let m = today.getMinutes() // 0 - 59
@@ -22,9 +22,9 @@ export default function ClockComponent() {
     m *= 6
     s *= 6 // 60 * 6 = 360deg
 
-    rotation(hours.current, h)
-    rotation(minutes.current, m)
-    rotation(seconds.current, s)
+    rotation(setHours, h)
+    rotation(setMinutes, m)
+    rotation(setSeconds, s)
 
     // call every second
     setTimeout(clock, 500)
@@ -35,9 +35,18 @@ export default function ClockComponent() {
   return (
     <div>
       <div className={styles.clock}>
-        <div className={`${styles.hand} ${styles.hours}`} ref={hours}></div>
-        <div className={`${styles.hand} ${styles.minutes}`} ref={minutes}></div>
-        <div className={`${styles.hand} ${styles.seconds}`} ref={seconds}></div>
+        <div
+          className={`${styles.hand} ${styles.hours}`}
+          style={{ transform: `rotate(${hours}deg)` }}
+        ></div>
+        <div
+          className={`${styles.hand} ${styles.minutes}`}
+          style={{ transform: `rotate(${minutes}deg)` }}
+        ></div>
+        <div
+          className={`${styles.hand} ${styles.seconds}`}
+          style={{ transform: `rotate(${seconds}deg)` }}
+        ></div>
         <div className={styles.point}></div>
         <div className={styles.marker}>
           <span className={styles['marker-1']}></span>
