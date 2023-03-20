@@ -9,7 +9,10 @@ export default function SearchCenterComponent() {
   const handleSearchEvent = async (event) => {
     const value = event.target.value
     inputValue.current = value
-    if (!value) return
+    if (!value) {
+      setSearchHint([])
+      return
+    }
     const resJsonFormat = await fetch(`/api/searchHintForBaidu?v=${value}`)
     const response: IResponse = await resJsonFormat.json()
     response.g ? setSearchHint(response.g) : setSearchHint([])
