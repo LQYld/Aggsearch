@@ -21,6 +21,7 @@ specifiers:
   husky: ^8.0.3
   jest: ^29.5.0
   jest-environment-jsdom: ^29.5.0
+  jinrishici: ^1.0.6
   lint-staged: ^13.1.2
   next: 13.2.3
   postcss: ^8.4.21
@@ -47,6 +48,7 @@ dependencies:
   animate.css: registry.npmmirror.com/animate.css/4.1.1
   eslint: registry.npmmirror.com/eslint/8.35.0
   eslint-config-next: registry.npmmirror.com/eslint-config-next/13.2.3_ycpbpc6yetojsgtrx3mwntkhsu
+  jinrishici: registry.npmmirror.com/jinrishici/1.0.6
   lint-staged: registry.npmmirror.com/lint-staged/13.1.2
   next: registry.npmmirror.com/next/13.2.3_biqbaboplfbrettd7655fr4n2y
   react: registry.npmmirror.com/react/18.2.0
@@ -5312,6 +5314,12 @@ packages:
       - supports-color
       - ts-node
     dev: true
+
+  registry.npmmirror.com/jinrishici/1.0.6:
+    resolution: {integrity: sha512-4Bk5VHo6xg9DspGS8y8I7D6kftA6DYy4rSvwpdtxFvh9DidXMgf+NSZKAXrcLTi8S5NjqmwkpAKYPHXRURH64Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/jinrishici/-/jinrishici-1.0.6.tgz}
+    name: jinrishici
+    version: 1.0.6
+    dev: false
 
   registry.npmmirror.com/js-sdsl/4.3.0:
     resolution: {integrity: sha512-mifzlm2+5nZ+lEcLJMoBK0/IH/bDg8XnJfd/Wq6IP+xoCjLZsTOnV2QpxlVbX9bMnkl5PdEjNtBJ9Cj1NjifhQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/js-sdsl/-/js-sdsl-4.3.0.tgz}
