@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { RADIO_TYPE } from './enum'
 import Clock from '@/components/widget/clock-component'
 import styles from './styles.module.css'
@@ -30,6 +30,19 @@ export default function MenuTabComponent() {
         return null
     }
   }
+  const getPosition = (position) => {
+    console.log(
+      '维度Latitude: ' +
+        position.coords.latitude +
+        '----经度Longitude: ' +
+        position.coords.longitude
+    )
+  }
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(getPosition)
+    }
+  }, [])
   return (
     <div className="relative">
       <div className={styles['segmented-control']}>
