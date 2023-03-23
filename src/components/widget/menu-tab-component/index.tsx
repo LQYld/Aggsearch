@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { RADIO_TYPE } from './enum'
 import Clock from '@/components/widget/clock-component'
+import Weather from '@/components/widget/weather-component'
 import styles from './styles.module.css'
 export default function MenuTabComponent() {
   const [checked, setChecked] = useState(RADIO_TYPE.CLOCK)
@@ -19,13 +20,24 @@ export default function MenuTabComponent() {
   }
   const AdapterAssembly = (type: RADIO_TYPE) => {
     switch (type) {
+      case RADIO_TYPE.WEATHER:
+        return (
+          <div
+            key={RADIO_TYPE.WEATHER}
+            className="animate__animated animate__fadeIn"
+          >
+            <Weather />
+          </div>
+        )
       case RADIO_TYPE.CLOCK:
         return (
-          <div className="animate__animated animate__fadeIn">
+          <div
+            key={RADIO_TYPE.CLOCK}
+            className="animate__animated animate__fadeIn"
+          >
             <Clock />
           </div>
         )
-
       default:
         return null
     }
