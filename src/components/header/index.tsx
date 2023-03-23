@@ -1,4 +1,3 @@
-import WeatherComponent from '@/components/widget/weather-component'
 import MenuBarComponent from '@/components/widget/menu-bar-component'
 import MenuTabComponent from '@/components/widget/menu-tab-component'
 import './styles.css'
