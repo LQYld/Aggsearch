@@ -58,7 +58,6 @@
 
 .location {
 	display: inline-block;
-	margin-top: 10px;
   font-size: 12px;
 }
 
@@ -86,6 +85,7 @@
 
 .weather-desc {
 	margin: 0;
+	font-size: 16px;
 }
 
 .info-side {
@@ -120,30 +120,43 @@
 	padding: 10px;
 	margin: 10px 0;
   margin-bottom: 0;
+	background: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
 	border-radius: 10px;
   box-shadow: var(--shadow);
 	list-style-type: none;
 }
 
 .week-list>li {
-	padding: 15px 5px;
-	margin: 0 2px;
-  color: var(--grey-dark);
+	display: flex;
+	padding: 15px 3px;
+	margin: 0 4px;
+	height: 100%;
+	font-size: 14px;
+  color: #222831;
+	background-color: rgb(255 255 255 / 10%);
+	border: 1px solid rgb(255 255 255 / 20%);
 	border-radius: 10px;
 	transition: 200ms ease;
 	cursor: pointer;
+	flex-direction: column;
 }
 
 .week-list>li:hover {
-  color: var(--primary);
-	box-shadow: var(--inner-shadow);
+  color: #fff;
+	background: #fff;
 	transform: scale(1.1);
+	backdrop-filter: blur(3px);
+	background-color: rgb(255 255 255 / 10%);
+	border: 1px solid rgb(255 255 255 / 20%);
+	box-shadow: 2px 2px 4px rgb(0 0 0 / 25%);
 }
 
 .week-list>li.active {
-	color: var(--primary);
+	color: #fff;
+	background-color: rgb(255 255 255 / 10%);
+	border: 1px solid rgb(255 255 255 / 20%);
 	border-radius: 10px;
-	box-shadow: var(--inner-shadow);
+	backdrop-filter: blur(3px);
 }
 
 .week-list>li .day-name {

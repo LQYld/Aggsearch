@@ -23,6 +23,7 @@ specifiers:
   jest-environment-jsdom: ^29.5.0
   jinrishici: ^1.0.6
   lint-staged: ^13.1.2
+  lodash: ^4.17.21
   next: 13.2.3
   postcss: ^8.4.21
   postcss-html: ^1.5.0
@@ -50,6 +51,7 @@ dependencies:
   eslint-config-next: registry.npmmirror.com/eslint-config-next/13.2.3_ycpbpc6yetojsgtrx3mwntkhsu
   jinrishici: registry.npmmirror.com/jinrishici/1.0.6
   lint-staged: registry.npmmirror.com/lint-staged/13.1.2
+  lodash: registry.npmmirror.com/lodash/4.17.21
   next: registry.npmmirror.com/next/13.2.3_biqbaboplfbrettd7655fr4n2y
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0

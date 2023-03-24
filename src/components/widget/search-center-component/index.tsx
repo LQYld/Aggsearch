@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { throttle } from 'lodash'
 import styles from './styles.module.css'
 interface IResponse extends Promise<any> {
   g?: unknown[]
@@ -6,7 +7,7 @@ interface IResponse extends Promise<any> {
 export default function SearchCenterComponent() {
   const [searchHint, setSearchHint] = useState([])
   const inputValue = useRef('')
-  const handleSearchEvent = async (event) => {
+  const handleSearchEvent = throttle(async (event) => {
     const value = event.target.value
     inputValue.current = value
     if (!value) {
@@ -15,8 +16,10 @@ export default function SearchCenterComponent() {
     }
     const resJsonFormat = await fetch(`/api/searchHintForBaidu?v=${value}`)
     const response: IResponse = await resJsonFormat.json()
-    response.g ? setSearchHint(response.g) : setSearchHint([])
-  }
+    response.g && inputValue.current
+      ? setSearchHint(response.g)
+      : setSearchHint([])
+  }, 100)
   const handleSearchBtnClick = () => {
     if (!inputValue.current) return
     window.open(`https://www.baidu.com/s?ie=utf-8&wd=${inputValue.current}`)
