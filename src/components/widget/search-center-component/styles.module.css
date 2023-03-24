@@ -104,17 +104,10 @@
 }
 
 .search-list::-webkit-scrollbar-track {
-  /* background: #ededed; */
-  background: var(--basebgc);
   border-radius: 10px;
-
-  /* 轨道 */
-  box-shadow: var(--inner-shadow);
 }
 
 .search-list::-webkit-scrollbar-thumb {
   background-color: var(--primary);
-
-  /* 滚动条小方块 */
-  border-radius: 10px
+  border-radius: 10px;
 }

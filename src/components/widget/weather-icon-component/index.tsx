@@ -591,8 +591,6 @@ export const Sunny = () => {
       y="0px"
       viewBox="0 0 44.9 44.9"
       xmlSpace="preserve"
-      height="40px"
-      width="40px"
     >
       <g id="Sun">
         <circle
@@ -667,10 +665,8 @@ export const ClearNight = () => {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
-      viewBox="0 0 30.8 42.5"
+      viewBox="-5 0 42.5 42.5"
       xmlSpace="preserve"
-      height="40px"
-      width="40px"
     >
       <path
         id="Moon"
@@ -692,8 +688,6 @@ export const SunnyWithWind = () => {
       y="0px"
       viewBox="0 0 45.1 47.6"
       xmlSpace="preserve"
-      height="45px"
-      width="45px"
     >
       <g id="Wind_Sun">
         <g id="Sun_1_">
@@ -926,6 +920,13 @@ const WeatherIconAdapter = ({ type, style }: IProps) => {
     default:
       break
   }
-  return <div style={style}>{childDom}</div>
+  return (
+    <div
+      className={`w-full flex items-center justify-center relative ${styles.svg}`}
+      style={style}
+    >
+      {childDom}
+    </div>
+  )
 }
 export default WeatherIconAdapter
