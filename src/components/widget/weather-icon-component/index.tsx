@@ -1,3 +1,4 @@
+import { WEATHER_MAP } from './enum'
 import styles from './styles.module.css'
 // Cloudy
 export const Cloudy = () => {
@@ -881,3 +882,50 @@ export const Snowy = () => {
     </svg>
   )
 }
+
+type IStyple = {
+  [key: string]: string
+}
+interface IProps {
+  type: string
+  style: IStyple
+}
+const WeatherIconAdapter = ({ type, style }: IProps) => {
+  let childDom = null
+  switch (type) {
+    case WEATHER_MAP.Cloudy:
+      childDom = <Cloudy />
+      break
+    case WEATHER_MAP.Rainy:
+      childDom = <Rainy />
+      break
+    case WEATHER_MAP.CloudyWithSun:
+      childDom = <CloudyWithSun />
+      break
+    case WEATHER_MAP.CloudyWithLightning:
+      childDom = <CloudyWithLightning />
+      break
+    case WEATHER_MAP.CloudyWithMoon:
+      childDom = <CloudyWithMoon />
+      break
+    case WEATHER_MAP.CloudyWithRainAndLightning:
+      childDom = <CloudyWithRainAndLightning />
+      break
+    case WEATHER_MAP.Sunny:
+      childDom = <Sunny />
+      break
+    case WEATHER_MAP.ClearNight:
+      childDom = <ClearNight />
+      break
+    case WEATHER_MAP.SunnyWithWind:
+      childDom = <SunnyWithWind />
+      break
+    case WEATHER_MAP.Snowy:
+      childDom = <Snowy />
+      break
+    default:
+      break
+  }
+  return <div style={style}>{childDom}</div>
+}
+export default WeatherIconAdapter
