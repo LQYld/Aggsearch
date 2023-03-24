@@ -15,16 +15,12 @@ export default function WeatherComponent() {
       <div className="container">
         <div className="weather-side">
           <div className="weather-container h-full flex flex-col justify-between">
-            <div className="w-full flex justify-center">
+            <div className="w-full h-full flex justify-center items-center">
               <WeatherIconAdapter
                 type={WEATHER_MAP.ClearNight}
                 style={weatherIconStyle}
               />
             </div>
-            {/* <div className="flex-1 w-full h-full flex flex-col justify-center">
-              <div className="weather-temp">29°C</div>
-              <div className="weather-desc">Sunny</div>
-            </div> */}
           </div>
           <div className="date-container h-full flex flex-col justify-between">
             <div className="flex items-center">

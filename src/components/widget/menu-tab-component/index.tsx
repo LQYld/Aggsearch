@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { RADIO_TYPE } from './enum'
-import Clock from '@/components/widget/clock-component'
 import Weather from '@/components/widget/weather-component'
+import Clock from '@/components/widget/clock-component'
+import InAword from '@/components/widget/inAword-component'
 import styles from './styles.module.css'
 export default function MenuTabComponent() {
   const [checked, setChecked] = useState(RADIO_TYPE.CLOCK)
@@ -14,8 +15,8 @@ export default function MenuTabComponent() {
         return 'segmented-control-color-weather'
       case RADIO_TYPE.CLOCK:
         return 'segmented-control-color-clock'
-      case RADIO_TYPE.OTHER:
-        return 'segmented-control-color-other'
+      case RADIO_TYPE.INAWORD:
+        return 'segmented-control-color-in-a-word'
     }
   }
   const AdapterAssembly = (type: RADIO_TYPE) => {
@@ -36,6 +37,15 @@ export default function MenuTabComponent() {
             className="animate__animated animate__fadeIn"
           >
             <Clock />
+          </div>
+        )
+      case RADIO_TYPE.INAWORD:
+        return (
+          <div
+            key={RADIO_TYPE.INAWORD}
+            className="animate__animated animate__fadeIn w-full"
+          >
+            <InAword />
           </div>
         )
       default:
@@ -95,18 +105,18 @@ export default function MenuTabComponent() {
         <input
           type="radio"
           name="radio2"
-          value={RADIO_TYPE.OTHER}
-          id={RADIO_TYPE.OTHER}
-          defaultChecked={checked == RADIO_TYPE.OTHER}
+          value={RADIO_TYPE.INAWORD}
+          id={RADIO_TYPE.INAWORD}
+          defaultChecked={checked == RADIO_TYPE.INAWORD}
         />
         <label
           className={styles['segmented-control-3']}
-          htmlFor={RADIO_TYPE.OTHER}
+          htmlFor={RADIO_TYPE.INAWORD}
           onClick={() => {
-            handlerTabClick(RADIO_TYPE.OTHER)
+            handlerTabClick(RADIO_TYPE.INAWORD)
           }}
         >
-          <p>{RADIO_TYPE.OTHER}</p>
+          <p>{RADIO_TYPE.INAWORD}</p>
         </label>
 
         <div
