@@ -117,7 +117,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-	padding: 0 10px;
+	padding: 10px;
 	margin: 10px 0;
   margin-bottom: 0;
 	border-radius: 10px;
@@ -127,6 +127,7 @@
 
 .week-list>li {
 	padding: 15px 5px;
+	margin: 0 2px;
   color: var(--grey-dark);
 	border-radius: 10px;
 	transition: 200ms ease;
@@ -135,15 +136,14 @@
 
 .week-list>li:hover {
   color: var(--primary);
-	background: #fff;
-	box-shadow: 0 0 40px -5px rgb(0 0 0 / 20%);
+	box-shadow: var(--inner-shadow);
 	transform: scale(1.1);
 }
 
 .week-list>li.active {
 	color: var(--primary);
-	background: #fff;
 	border-radius: 10px;
+	box-shadow: var(--inner-shadow);
 }
 
 .week-list>li .day-name {
