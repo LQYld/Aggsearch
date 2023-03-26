@@ -1,9 +1,14 @@
 .sentence{ 
   padding: 10px;
   margin-bottom: 10px;
+  font-size: 14px;
   color: var(--primary);
   border-radius: 10px;
   box-shadow: var(--inner-shadow);
   cursor: pointer;
 }
 .sentence:last-child {margin-bottom: 0;}
+
+.come-from {
+  font-size: 8px;
+}
