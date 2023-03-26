@@ -11,7 +11,7 @@
 .container {
   font-family: Montserrat, sans-serif;
   color: var(--primary);
-	border-radius: 25px;
+	border-radius: 10px;
 	cursor: pointer;
 }
 
@@ -20,7 +20,7 @@
   justify-content: space-between;
   align-items: flex-start;
 	height: 100px;
-	border-radius: 25px;
+	border-radius: 10px;
   box-shadow: var(--shadow);
 	transition: transform 300ms ease, -webkit-transform 300ms ease;
 

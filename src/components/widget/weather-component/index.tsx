@@ -1,7 +1,11 @@
 import WeatherIconAdapter from '../weather-icon-component'
 import { WEATHER_MAP } from '../weather-icon-component/enum'
 import './styles.css'
-export default function WeatherComponent() {
+export default function WeatherComponent({
+  weatherValue
+}: {
+  weatherValue: any
+}) {
   const weatherIconStyle = {
     width: '50px',
     height: '50px'
@@ -10,6 +14,7 @@ export default function WeatherComponent() {
     width: '20px',
     height: '20px'
   }
+  const daily = weatherValue?.result?.daily || {}
   return (
     <div className="h-full">
       <div className="container">
@@ -28,10 +33,12 @@ export default function WeatherComponent() {
               <span className="date-day">15 Jan 2019</span>
             </div>
             {/* <i className="location-icon" data-feather="map-pin"></i> */}
-            <span className="location">Paris, FR</span>
+            <span className="location">ChongQing, China</span>
             <div className="flex items-center">
-              <div className="weather-temp mr-4">29°C</div>
-              <div className="weather-desc">Sunny</div>
+              <div className="weather-temp mr-4">
+                {daily?.temperature[0]?.avg}°C
+              </div>
+              {/* <div className="weather-desc">Sunny</div> */}
             </div>
           </div>
         </div>
