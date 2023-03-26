@@ -4,17 +4,11 @@ interface ILanguageArts {
   en?: any
   [`zh-cn`]?: any
 }
-export default function InAwordComponent() {
-  const [languageArts, setLanguageArts] = useState<ILanguageArts>({})
-  const getInAwordMessage = async () => {
-    const resJsonFormat = await fetch(`/api/languageArts`)
-    const response = await resJsonFormat.json()
-    console.log(response, 'response')
-    setLanguageArts(response || {})
-  }
-  useEffect(() => {
-    getInAwordMessage()
-  }, [])
+export default function InAwordComponent({
+  languageArts = {}
+}: {
+  languageArts: ILanguageArts
+}) {
   return (
     <div className={`px-4`}>
       {languageArts?.en && (

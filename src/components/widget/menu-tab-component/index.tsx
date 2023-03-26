@@ -6,6 +6,16 @@ import InAword from '@/components/widget/inAword-component'
 import styles from './styles.module.css'
 export default function MenuTabComponent() {
   const [checked, setChecked] = useState(RADIO_TYPE.CLOCK)
+  const [languageArts, setLanguageArts] = useState<any>(null)
+  const getInAwordMessage = async () => {
+    const resJsonFormat = await fetch(`/api/languageArts`)
+    const response = await resJsonFormat.json()
+    console.log(response, 'response')
+    setLanguageArts(response || {})
+  }
+  useEffect(() => {
+    getInAwordMessage()
+  }, [])
   const handlerTabClick = (type: RADIO_TYPE) => {
     setChecked(type)
   }
@@ -45,7 +55,7 @@ export default function MenuTabComponent() {
             key={RADIO_TYPE.INAWORD}
             className="animate__animated animate__fadeIn w-full"
           >
-            <InAword />
+            {languageArts && <InAword languageArts={languageArts} />}
           </div>
         )
       default:
