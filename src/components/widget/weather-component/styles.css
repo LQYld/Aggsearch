@@ -121,7 +121,7 @@
 	padding: 10px;
 	margin: 10px 0;
   margin-bottom: 0;
-	background: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+	background: linear-gradient( 135deg, #c8c2fc 10%, var(--primary) 100%);
 	border-radius: 10px;
   box-shadow: var(--shadow);
 	list-style-type: none;
@@ -133,7 +133,7 @@
 	margin: 0 4px;
 	height: 100%;
 	font-size: 14px;
-  color: #222831;
+	color: var(--grey-light-2);
 	background-color: rgb(255 255 255 / 10%);
 	border: 1px solid rgb(255 255 255 / 20%);
 	border-radius: 10px;
