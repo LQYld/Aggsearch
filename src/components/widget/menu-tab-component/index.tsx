@@ -7,14 +7,24 @@ import styles from './styles.module.css'
 export default function MenuTabComponent() {
   const [checked, setChecked] = useState(RADIO_TYPE.CLOCK)
   const [languageArts, setLanguageArts] = useState<any>(null)
+  const [weatherValue, setWeatherValue] = useState<any>(null)
+  // 获取 每日语言艺术
   const getInAwordMessage = async () => {
     const resJsonFormat = await fetch(`/api/languageArts`)
     const response = await resJsonFormat.json()
-    console.log(response, 'response')
     setLanguageArts(response || {})
+  }
+  // 获取 天气情况
+  const getColorfulCLoudWeather = async () => {
+    const resJsonFormat = await fetch(
+      `/api/colorfulCloudWeather?longitude=106.55&latitude=29.57`
+    )
+    const response = await resJsonFormat.json()
+    setWeatherValue(response || {})
   }
   useEffect(() => {
     getInAwordMessage()
+    getColorfulCLoudWeather()
   }, [])
   const handlerTabClick = (type: RADIO_TYPE) => {
     setChecked(type)
@@ -37,7 +47,7 @@ export default function MenuTabComponent() {
             key={RADIO_TYPE.WEATHER}
             className="animate__animated animate__fadeIn"
           >
-            <Weather />
+            {weatherValue && <Weather weatherValue={weatherValue} />}
           </div>
         )
       case RADIO_TYPE.CLOCK:
@@ -62,19 +72,6 @@ export default function MenuTabComponent() {
         return null
     }
   }
-  const getPosition = (position) => {
-    console.log(
-      '维度Latitude: ' +
-        position.coords.latitude +
-        '----经度Longitude: ' +
-        position.coords.longitude
-    )
-  }
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(getPosition)
-    }
-  }, [])
   return (
     <div className="relative">
       <div className={styles['segmented-control']}>
