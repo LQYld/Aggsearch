@@ -12,6 +12,7 @@
   font-family: Montserrat, sans-serif;
   color: var(--primary);
 	border-radius: 25px;
+	cursor: pointer;
 }
 
 .weather-side {
