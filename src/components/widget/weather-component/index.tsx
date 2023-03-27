@@ -1,5 +1,6 @@
 import WeatherIconAdapter from '../weather-icon-component'
 import { WEATHER_MAP } from '../weather-icon-component/enum'
+import { skycon_bgc_map } from './enum'
 import './styles.css'
 export default function WeatherComponent({
   weatherValue
@@ -18,7 +19,12 @@ export default function WeatherComponent({
   return (
     <div className="h-full">
       <div className="container">
-        <div className="weather-side">
+        <div
+          className="weather-side"
+          style={{
+            backgroundImage: `url('${skycon_bgc_map[daily?.skycon[0]?.value]}')`
+          }}
+        >
           <div className="weather-container h-full flex flex-col justify-between">
             <div className="w-full h-full flex justify-center items-center">
               <WeatherIconAdapter
