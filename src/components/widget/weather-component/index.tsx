@@ -1,6 +1,10 @@
 import WeatherIconAdapter from '../weather-icon-component'
-import { WEATHER_MAP } from '../weather-icon-component/enum'
-import { skycon_bgc_map } from './enum'
+import {
+  reservedInteger,
+  theCurrentDayOfTheWeek_abbreviation,
+  theCurrentDay
+} from '@/utils'
+import { skycon_bgc_map, skycon_icon_map } from './enum'
 import './styles.css'
 export default function WeatherComponent({
   weatherValue
@@ -28,21 +32,27 @@ export default function WeatherComponent({
           <div className="weather-container h-full flex flex-col justify-between">
             <div className="w-full h-full flex justify-center items-center">
               <WeatherIconAdapter
-                type={WEATHER_MAP.ClearNight}
+                type={skycon_icon_map[daily?.skycon[0]?.value]}
                 style={weatherIconStyle}
               />
             </div>
           </div>
           <div className="date-container h-full flex flex-col justify-between">
             <div className="flex items-center">
-              <h2 className="date-dayname mr-4">Tuesday</h2>
-              <span className="date-day">15 Jan 2019</span>
+              <h2 className="date-dayname mr-4">
+                {theCurrentDayOfTheWeek_abbreviation(
+                  daily?.temperature[0]?.date
+                )}
+              </h2>
+              <span className="date-day">
+                {theCurrentDay(daily?.temperature[0]?.date)}
+              </span>
             </div>
             {/* <i className="location-icon" data-feather="map-pin"></i> */}
             <span className="location">ChongQing, China</span>
             <div className="flex items-center">
               <div className="weather-temp mr-4">
-                {daily?.temperature[0]?.avg}°C
+                {reservedInteger(daily?.temperature[0]?.avg)}°C
               </div>
               {/* <div className="weather-desc">Sunny</div> */}
             </div>
@@ -51,17 +61,31 @@ export default function WeatherComponent({
         <div className="info-side">
           <div className="week-container">
             <ul className="week-list">
-              <li className="active">
-                <div className="flex-1 flex justify-center">
-                  <WeatherIconAdapter
-                    type={WEATHER_MAP.Sunny}
-                    style={weatherListIconStyle}
-                  />
-                </div>
-                <span className="day-name">Tue</span>
-                <span className="day-temp">29°C</span>
-              </li>
-              <li>
+              {
+                (daily?.skycon || []).map((node, nodeIndex) => {
+                  return (
+                    <li
+                      className={`${nodeIndex === 0 ? 'active' : ''}`}
+                      key={`weather_component_li_${nodeIndex}`}
+                    >
+                      <div className="flex-1 flex justify-center">
+                        <WeatherIconAdapter
+                          type={skycon_icon_map[node?.value]}
+                          style={weatherListIconStyle}
+                        />
+                      </div>
+                      <span className="day-name">
+                        {theCurrentDayOfTheWeek_abbreviation(
+                          daily?.temperature[nodeIndex]?.date
+                        )}
+                      </span>
+                      <span className="day-temp">
+                        {reservedInteger(daily?.temperature[nodeIndex]?.avg)}°C
+                      </span>
+                    </li>
+                  )
+                })
+                /* <li>
                 <div className="flex-1 flex justify-center">
                   <WeatherIconAdapter
                     type={WEATHER_MAP.ClearNight}
@@ -90,7 +114,8 @@ export default function WeatherComponent({
                 </div>
                 <span className="day-name">Fry</span>
                 <span className="day-temp">19°C</span>
-              </li>
+              </li> */
+              }
               <div className="clear"></div>
             </ul>
           </div>

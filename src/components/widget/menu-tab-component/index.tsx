@@ -5,7 +5,7 @@ import Clock from '@/components/widget/clock-component'
 import InAword from '@/components/widget/inAword-component'
 import styles from './styles.module.css'
 export default function MenuTabComponent() {
-  const [checked, setChecked] = useState(RADIO_TYPE.CLOCK)
+  const [checked, setChecked] = useState(RADIO_TYPE.WEATHER)
   const [languageArts, setLanguageArts] = useState<any>(null)
   const [weatherValue, setWeatherValue] = useState<any>(null)
   // 获取 每日语言艺术

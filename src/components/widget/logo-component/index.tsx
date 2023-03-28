@@ -11,7 +11,7 @@ export default function LogoComponent() {
               data-letter={el}
               key={`logo_component_${eleIndex}`}
             >
-              A
+              {el}
             </p>
           )
         })}

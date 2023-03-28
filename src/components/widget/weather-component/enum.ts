@@ -1,3 +1,4 @@
+import { WEATHER_MAP } from '../weather-icon-component/enum'
 const weather_overview_v2 = {
   cloudyImageUrl:
     'https://assets.msn.cn/weathermapdata/1/static/images/webps/v1.0/Cloudy 2.webp',
@@ -60,26 +61,26 @@ export enum skycon_map {
   WIND = 'WIND' // 大风
 }
 export const skycon_icon_map = {
-  [`${skycon_map.CLEAR_DAY}`]: '', // 晴（白天）
-  [`${skycon_map.CLEAR_NIGHT}`]: '', // 晴（夜间）
-  [`${skycon_map.PARTLY_CLOUDY_DAY}`]: '', // 多云（白天）
-  [`${skycon_map.PARTLY_CLOUDY_NIGHT}`]: '', // 多云（夜间）
-  [`${skycon_map.CLOUDY}`]: '', // 阴
-  [`${skycon_map.LIGHT_HAZE}`]: '', // 轻度雾霾
-  [`${skycon_map.MODERATE_HAZE}`]: '', // 中度雾霾
-  [`${skycon_map.HEAVY_HAZE}`]: '', // 重度雾霾
-  [`${skycon_map.LIGHT_RAIN}`]: '', // 小雨
-  [`${skycon_map.MODERATE_RAIN}`]: '', // 中雨
-  [`${skycon_map.HEAVY_RAIN}`]: '', // 大雨
-  [`${skycon_map.STORM_RAIN}`]: '', // 暴雨
-  [`${skycon_map.FOG}`]: '', // 雾
-  [`${skycon_map.LIGHT_SNOW}`]: '', // 小雪
-  [`${skycon_map.MODERATE_SNOW}`]: '', // 中雪
-  [`${skycon_map.HEAVY_SNOW}`]: '', // 大雪
-  [`${skycon_map.STORM_SNOW}`]: '', // 暴雪
-  [`${skycon_map.DUST}`]: '', // 浮尘
-  [`${skycon_map.SAND}`]: '', // 沙尘
-  [`${skycon_map.WIND}`]: '' // 大风
+  [`${skycon_map.CLEAR_DAY}`]: WEATHER_MAP.Sunny, // 晴（白天）
+  [`${skycon_map.CLEAR_NIGHT}`]: WEATHER_MAP.ClearNight, // 晴（夜间）
+  [`${skycon_map.PARTLY_CLOUDY_DAY}`]: WEATHER_MAP.CloudyWithSun, // 多云（白天）
+  [`${skycon_map.PARTLY_CLOUDY_NIGHT}`]: WEATHER_MAP.Cloudy, // 多云（夜间）
+  [`${skycon_map.CLOUDY}`]: WEATHER_MAP.CloudyWithMoon, // 阴
+  [`${skycon_map.LIGHT_HAZE}`]: WEATHER_MAP.Cloudy, // 轻度雾霾
+  [`${skycon_map.MODERATE_HAZE}`]: WEATHER_MAP.Cloudy, // 中度雾霾
+  [`${skycon_map.HEAVY_HAZE}`]: WEATHER_MAP.Cloudy, // 重度雾霾
+  [`${skycon_map.LIGHT_RAIN}`]: WEATHER_MAP.Rainy, // 小雨
+  [`${skycon_map.MODERATE_RAIN}`]: WEATHER_MAP.CloudyWithLightning, // 中雨
+  [`${skycon_map.HEAVY_RAIN}`]: WEATHER_MAP.CloudyWithRainAndLightning, // 大雨
+  [`${skycon_map.STORM_RAIN}`]: WEATHER_MAP.CloudyWithRainAndLightning, // 暴雨
+  [`${skycon_map.FOG}`]: WEATHER_MAP.Cloudy, // 雾
+  [`${skycon_map.LIGHT_SNOW}`]: WEATHER_MAP.Snowy, // 小雪
+  [`${skycon_map.MODERATE_SNOW}`]: WEATHER_MAP.Snowy, // 中雪
+  [`${skycon_map.HEAVY_SNOW}`]: WEATHER_MAP.Snowy, // 大雪
+  [`${skycon_map.STORM_SNOW}`]: WEATHER_MAP.Snowy, // 暴雪
+  [`${skycon_map.DUST}`]: WEATHER_MAP.SunnyWithWind, // 浮尘
+  [`${skycon_map.SAND}`]: WEATHER_MAP.SunnyWithWind, // 沙尘
+  [`${skycon_map.WIND}`]: WEATHER_MAP.SunnyWithWind // 大风
 }
 
 export const skycon_bgc_map = {
