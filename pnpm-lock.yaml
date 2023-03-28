@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@commitlint/cli': ^17.4.4
   '@commitlint/config-conventional': ^17.4.4
+  '@douyinfe/semi-icons': ^2.31.2
   '@douyinfe/semi-ui': ^2.30.1
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^14.0.0
@@ -43,6 +44,7 @@ specifiers:
   typescript: 4.9.5
 
 dependencies:
+  '@douyinfe/semi-icons': registry.npmmirror.com/@douyinfe/semi-icons/2.31.2_react@18.2.0
   '@douyinfe/semi-ui': registry.npmmirror.com/@douyinfe/semi-ui/2.30.1_biqbaboplfbrettd7655fr4n2y
   '@types/node': registry.npmmirror.com/@types/node/18.14.2
   '@types/react': registry.npmmirror.com/@types/react/18.0.28
@@ -855,6 +857,18 @@ packages:
     id: registry.npmmirror.com/@douyinfe/semi-icons/2.30.1
     name: '@douyinfe/semi-icons'
     version: 2.30.1
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      classnames: registry.npmmirror.com/classnames/2.3.2
+      react: registry.npmmirror.com/react/18.2.0
+    dev: false
+
+  registry.npmmirror.com/@douyinfe/semi-icons/2.31.2_react@18.2.0:
+    resolution: {integrity: sha512-LAEtAt5CDKjolS9QqI73rQXYUNmLLZYJSbjsilaZRVsFfj7/fSjAG/jrx1NmY7sUkznZ40yQD8380QB1UkHzdQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@douyinfe/semi-icons/-/semi-icons-2.31.2.tgz}
+    id: registry.npmmirror.com/@douyinfe/semi-icons/2.31.2
+    name: '@douyinfe/semi-icons'
+    version: 2.31.2
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
