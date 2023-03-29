@@ -1,3 +1,4 @@
+import { Tooltip } from '@douyinfe/semi-ui'
 import {
   IconLanguage,
   IconSetting,
@@ -10,12 +11,61 @@ import './styles.css'
 export default function MenuBarComponent() {
   const size = 'large'
   const menuBarList = [
-    () => <IconLanguage className="primary-color" size={size} />,
-    () => <IconSun className="primary-color" size={size} />,
-    () => <IconMoon className="primary-color" size={size} />,
-    () => <IconGithubLogo className="primary-color" size={size} />,
-    () => <IconHistory className="primary-color" size={size} />,
-    () => <IconSetting className="primary-color" size={size} />
+    () => (
+      <Tooltip
+        content={
+          <article>
+            <p>Switch to English</p>
+          </article>
+        }
+      >
+        <IconLanguage className="primary-color" size={size} />
+      </Tooltip>
+    ),
+    () => (
+      <Tooltip
+        content={
+          <article>
+            <p>Switch to dark mode</p>
+          </article>
+        }
+      >
+        <IconSun className="primary-color" size={size} />
+      </Tooltip>
+    ),
+    () => (
+      <Tooltip
+        content={
+          <article>
+            <p>Jump to GitHub</p>
+          </article>
+        }
+      >
+        <IconGithubLogo className="primary-color" size={size} />
+      </Tooltip>
+    ),
+    () => (
+      <Tooltip
+        content={
+          <article>
+            <p>View update records</p>
+          </article>
+        }
+      >
+        <IconHistory className="primary-color" size={size} />
+      </Tooltip>
+    ),
+    () => (
+      <Tooltip
+        content={
+          <article>
+            <p>Change setting</p>
+          </article>
+        }
+      >
+        <IconSetting className="primary-color" size={size} />
+      </Tooltip>
+    )
   ]
   return (
     <div className="flex items-center justify-center cursor-pointer">
