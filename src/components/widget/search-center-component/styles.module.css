@@ -111,3 +111,13 @@
   background-color: var(--primary);
   border-radius: 10px;
 }
+
+.sentence{
+  font-size: 16px;
+  color: var(--grey-dark);
+  cursor: pointer;
+}
+
+.sentence-title{
+  font-size: 10px;
+}
