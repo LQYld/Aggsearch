@@ -10,6 +10,7 @@ import {
 import './styles.css'
 export default function MenuBarComponent() {
   const size = 'large'
+  const goToGithub = () => window.open('https://github.com/LQYld/Aggsearch')
   const menuBarList = [
     () => (
       <Tooltip
@@ -41,7 +42,11 @@ export default function MenuBarComponent() {
           </article>
         }
       >
-        <IconGithubLogo className="primary-color" size={size} />
+        <IconGithubLogo
+          className="primary-color"
+          size={size}
+          onClick={goToGithub}
+        />
       </Tooltip>
     ),
     () => (
