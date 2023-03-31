@@ -1,0 +1,118 @@
+.todo-list {
+  padding: 10px;
+  margin: auto;
+  width: 100%; 
+  font-size: 20px;
+}
+
+.todo {
+  position: relative;
+  display: block;
+  padding: 10px 10px 10px 16%;
+  margin: 0 auto;
+  cursor: pointer; 
+  border-bottom: solid 1px #ddd;
+}
+
+.todo:last-child{ border-bottom: none; }
+
+.todo-state {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.todo-text {
+  font-size: 16px;
+  color: var(--primary);
+  transition: all var(--duration)/2 linear var(--duration)/2;
+}
+
+.todo-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  fill: none;
+  stroke: #27FDC7;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+
+.todo-line,
+.todo-box,
+.todo-check {
+  transition: stroke-dashoffset var(--duration) cubic-bezier(.9,.0,.5,1);
+}
+
+
+.todo-circle {
+  stroke: #27FDC7;
+  stroke-dasharray: 1 6;
+  stroke-width: 0;
+  transform-origin: 13.5px 12.5px;
+  transform: scale(0.4) rotate(0deg);
+  animation: none var(--duration) linear; 
+  
+  /* //cubic-bezier(.08,.56,.04,.98); */
+  
+ 
+}
+
+@keyframes explode {
+  /* //0% { stroke-width: 0; transform: scale(0.5) rotate(0deg); } */
+  30% { 
+    stroke-width: 3;
+    stroke-opacity: 1;
+    transform: scale(0.8) rotate(40deg);
+
+    /* //animation-timing-function: cubic-bezier(.89,.01,.95,.51); */
+  }
+
+  100% { 
+    stroke-width: 0;
+    stroke-opacity: 0;
+    transform: scale(1.1) rotate(60deg);
+
+    /* //animation-timing-function: cubic-bezier(.08,.56,.04,.98); */
+  }
+}
+
+.todo-box { 
+  stroke-dasharray: 56.1053, 56.1053; stroke-dashoffset: 0;
+  transition-delay: var(--duration) * 0.2; 
+}
+
+.todo-check {
+  stroke: #27FDC7;
+  stroke-dasharray: 9.8995, 9.8995; stroke-dashoffset: 9.8995;
+  transition-duration: var(--duration) * 0.4; 
+}
+
+.todo-line {
+  stroke-dasharray: 168, 1684; 
+  stroke-dashoffset: 168;
+}
+
+.todo-circle { 
+  animation-delay: var(--duration) * 0.7; 
+  animation-duration: var(--duration) * 0.7; 
+}
+
+
+.todo-state:checked ~ .todo-text { transition-delay: 0s; color: var(--grey-dark); opacity: 0.6; }
+.todo-state:checked ~ .todo-icon .todo-box { stroke-dashoffset: 56.1053; transition-delay: 0s; }
+.todo-state:checked ~ .todo-icon .todo-line { stroke-dashoffset: -8; }
+.todo-state:checked ~ .todo-icon .todo-check { stroke-dashoffset: 0; transition-delay: var(--duration) * 0.6; }
+.todo-state:checked ~ .todo-icon .todo-circle { animation-name: explode; }
+
+
+html { background: #ddd; }
+html { display: flex; height: 100%; }
+body { margin: auto; width: 100%; }

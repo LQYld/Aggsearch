@@ -2,18 +2,11 @@ import { useEffect, useState } from 'react'
 import { RADIO_TYPE } from './enum'
 import Weather from '@/components/widget/weather-component'
 import Clock from '@/components/widget/clock-component'
-import InAword from '@/components/widget/inAword-component'
+import Todo from '@/components/widget/todo-component'
 import styles from './styles.module.css'
 export default function MenuTabComponent() {
   const [checked, setChecked] = useState(RADIO_TYPE.WEATHER)
-  const [languageArts, setLanguageArts] = useState<any>(null)
   const [weatherValue, setWeatherValue] = useState<any>(null)
-  // 获取 每日语言艺术
-  const getInAwordMessage = async () => {
-    const resJsonFormat = await fetch(`/api/languageArts`)
-    const response = await resJsonFormat.json()
-    setLanguageArts(response || {})
-  }
   // 获取 天气情况
   const getColorfulCLoudWeather = async () => {
     const resJsonFormat = await fetch(
@@ -23,7 +16,6 @@ export default function MenuTabComponent() {
     setWeatherValue(response || {})
   }
   useEffect(() => {
-    getInAwordMessage()
     getColorfulCLoudWeather()
   }, [])
   const handlerTabClick = (type: RADIO_TYPE) => {
@@ -35,7 +27,7 @@ export default function MenuTabComponent() {
         return 'segmented-control-color-weather'
       case RADIO_TYPE.CLOCK:
         return 'segmented-control-color-clock'
-      case RADIO_TYPE.INAWORD:
+      case RADIO_TYPE.TODO:
         return 'segmented-control-color-in-a-word'
     }
   }
@@ -59,13 +51,13 @@ export default function MenuTabComponent() {
             <Clock />
           </div>
         )
-      case RADIO_TYPE.INAWORD:
+      case RADIO_TYPE.TODO:
         return (
           <div
-            key={RADIO_TYPE.INAWORD}
+            key={RADIO_TYPE.TODO}
             className="animate__animated animate__fadeIn w-full"
           >
-            {languageArts && <InAword languageArts={languageArts} />}
+            {<Todo />}
           </div>
         )
       default:
@@ -112,18 +104,18 @@ export default function MenuTabComponent() {
         <input
           type="radio"
           name="radio2"
-          value={RADIO_TYPE.INAWORD}
-          id={RADIO_TYPE.INAWORD}
-          defaultChecked={checked == RADIO_TYPE.INAWORD}
+          value={RADIO_TYPE.TODO}
+          id={RADIO_TYPE.TODO}
+          defaultChecked={checked == RADIO_TYPE.TODO}
         />
         <label
           className={styles['segmented-control-3']}
-          htmlFor={RADIO_TYPE.INAWORD}
+          htmlFor={RADIO_TYPE.TODO}
           onClick={() => {
-            handlerTabClick(RADIO_TYPE.INAWORD)
+            handlerTabClick(RADIO_TYPE.TODO)
           }}
         >
-          <p>{RADIO_TYPE.INAWORD}</p>
+          <p>{RADIO_TYPE.TODO}</p>
         </label>
 
         <div
