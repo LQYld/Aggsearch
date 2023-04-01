@@ -3,7 +3,6 @@ import Header from '@/components/header'
 import SearchCenterComponent from '@/components/widget/search-center-component'
 import LogoComponent from '@/components/widget/logo-component'
 import ProgramDockComponent from '@/components/widget/program-dock-component'
-import { Rainy } from '@/components/widget/weather-icon-component'
 export default function Home() {
   return (
     <>
@@ -12,7 +11,6 @@ export default function Home() {
         <div className="absolute top-1/4 w-full flex flex-col items-center animate__animated animate__backInDown">
           <div className="">
             <LogoComponent />
-            {/* <Rainy /> */}
           </div>
           <div className="m-2">
             <SearchCenterComponent />
