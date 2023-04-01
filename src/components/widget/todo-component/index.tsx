@@ -1,6 +1,27 @@
+import { useState } from 'react'
 import './styles.css'
+
 export default function TodoComponent() {
   const stopColor = '#b1a8fe'
+  const [todoList, setTodoList] = useState([
+    {
+      checked: false,
+      value: 'Do a very important task'
+    },
+    {
+      checked: true,
+      value: 'Another important task'
+    },
+    {
+      checked: false,
+      value: 'Not so important task'
+    }
+  ])
+  const updateToDoItemChange = (index) => {
+    const copyTodoList = JSON.parse(JSON.stringify(todoList))
+    copyTodoList[index].checked = !copyTodoList[index].checked
+    setTodoList(copyTodoList)
+  }
   return (
     <div className="relative">
       <svg
@@ -20,13 +41,13 @@ export default function TodoComponent() {
             x2="25"
             y2="25"
           >
-            <stop offset="0%" stop-color={stopColor} />
-            <stop offset="100%" stop-color={stopColor} />
+            <stop offset="0%" stopColor={stopColor} />
+            <stop offset="100%" stopColor={stopColor} />
           </linearGradient>
 
           <linearGradient id="lineGradient">
-            <stop offset="0%" stop-color={stopColor} />
-            <stop offset="100%" stop-color={stopColor} />
+            <stop offset="0%" stopColor={stopColor} />
+            <stop offset="100%" stopColor={stopColor} />
           </linearGradient>
 
           <path
@@ -48,59 +69,34 @@ export default function TodoComponent() {
         </defs>
       </svg>
       <div className="todo-list">
-        <label className="todo">
-          <input className="todo-state" type="checkbox" />
+        {todoList.map((node, nodeIndex) => {
+          return (
+            <label className="todo" key={`todo_component_${nodeIndex}`}>
+              <input
+                className="todo-state"
+                type="checkbox"
+                checked={node.checked}
+                onChange={() => {
+                  updateToDoItemChange(nodeIndex)
+                }}
+              />
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 200 25"
-            className="todo-icon"
-          >
-            <use xlinkHref="#todo-line" className="todo-line"></use>
-            <use xlinkHref="#todo-box" className="todo-box"></use>
-            <use xlinkHref="#todo-check" className="todo-check"></use>
-            <use xlinkHref="#todo-circle" className="todo-circle"></use>
-          </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 200 25"
+                className="todo-icon"
+              >
+                <use xlinkHref="#todo-line" className="todo-line"></use>
+                <use xlinkHref="#todo-box" className="todo-box"></use>
+                <use xlinkHref="#todo-check" className="todo-check"></use>
+                <use xlinkHref="#todo-circle" className="todo-circle"></use>
+              </svg>
 
-          <div className="todo-text">Do a very important task</div>
-        </label>
-
-        <label className="todo">
-          <input className="todo-state" type="checkbox" />
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 200 25"
-            className="todo-icon"
-          >
-            <use xlinkHref="#todo-line" className="todo-line"></use>
-            <use xlinkHref="#todo-box" className="todo-box"></use>
-            <use xlinkHref="#todo-check" className="todo-check"></use>
-            <use xlinkHref="#todo-circle" className="todo-circle"></use>
-          </svg>
-
-          <div className="todo-text">Another important task</div>
-        </label>
-
-        <label className="todo">
-          <input className="todo-state" type="checkbox" />
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 200 25"
-            className="todo-icon"
-          >
-            <use xlinkHref="#todo-line" className="todo-line"></use>
-            <use xlinkHref="#todo-box" className="todo-box"></use>
-            <use xlinkHref="#todo-check" className="todo-check"></use>
-            <use xlinkHref="#todo-circle" className="todo-circle"></use>
-          </svg>
-
-          <div className="todo-text">Not so important task</div>
-        </label>
+              <div className="todo-text">{node.value}</div>
+            </label>
+          )
+        })}
       </div>
     </div>
   )
