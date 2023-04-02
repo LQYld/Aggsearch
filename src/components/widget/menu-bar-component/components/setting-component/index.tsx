@@ -1,4 +1,4 @@
-import { Modal, Tabs } from '@douyinfe/semi-ui'
+import { Modal, Tabs, Typography } from '@douyinfe/semi-ui'
 import {
   IconSetting,
   IconClose,
@@ -7,48 +7,37 @@ import {
   IconCheckList,
   IconTemplate
 } from '@douyinfe/semi-icons'
+import SettingAboutComponent from './setting-about-component'
+import SettingSearchSettingComponent from './setting-search-setting-component'
+import SettingSettingTodoComponent from './setting-setting-todo-component'
+import SettingThemeColorComponent from './setting-theme-color-component'
 import styles from './styles.module.css'
-import { useState } from 'react'
 const { TabPane } = Tabs
+const { Title } = Typography
 export default function SettingComponent({ visible, changeVisible }) {
   // 关闭弹框
   const closeModal = () => changeVisible(false)
-  // TODO: 测试主体内容
-  const TestContent = (
-    <div style={{ padding: '0 24px' }}>
-      <h3>文档</h3>
-      <p style={{ lineHeight: 1.8 }}>
-        Semi Design 是由互娱社区前端团队与 UED
-        团队共同设计开发并维护的设计系统。设计系统包含设计语言以及一整套可复用的前端组件，帮助设计师与开发者更容易地打造高质量的、用户体验一致的、符合设计规范的
-        Web 应用。
-      </p>
-      <p style={{ lineHeight: 1.8 }}>
-        区别于其他的设计系统而言，Semi Design
-        以用户中心、内容优先、设计人性化为设计理念，具有以下优势：
-      </p>
-    </div>
-  )
   // tab栏设置
   const tabList = [
     {
       label: 'Search Settings',
       icon: <IconGlobe />,
-      content: TestContent
+      content: <SettingSearchSettingComponent />
     },
     {
       label: 'Theme Colors',
       icon: <IconTemplate />,
-      content: TestContent
+      content: <SettingThemeColorComponent />
     },
     {
       label: 'Setting Todo',
       icon: <IconCheckList />,
-      content: TestContent
+      content: <SettingSettingTodoComponent />
     },
     {
       label: 'About',
       icon: <IconHelpCircle />,
-      content: TestContent
+      content: <SettingAboutComponent />
     }
   ]
   // 页头
@@ -90,6 +79,7 @@ export default function SettingComponent({ visible, changeVisible }) {
         {tabList.map((node, nodeIndex) => {
           return (
             <TabPane
+              className="px-4"
               tab={
                 <span>
                   {node.icon}
@@ -99,7 +89,16 @@ export default function SettingComponent({ visible, changeVisible }) {
               itemKey={`setting_component_tabList_${nodeIndex}`}
               key={`setting_component_tabList_${nodeIndex}`}
             >
-              {node.content}
+              <div
+                className={`overflow-y-auto max-h-96 ${styles['setting-list']}`}
+              >
+                <div className="pb-2">
+                  <Title type="secondary" heading={6}>
+                    {node.label}
+                  </Title>
+                </div>
+                {node.content}
+              </div>
             </TabPane>
           )
         })}
