@@ -47,3 +47,18 @@
 .btn-secondary:active{
   box-shadow: var(--inner-shadow);
 }
+
+.setting-list::-webkit-scrollbar {
+  /* 整体样式 */
+  width: 10px; 
+  height: 9px;
+}
+
+.setting-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.setting-list::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 10px;
+}
