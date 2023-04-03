@@ -1,4 +1,4 @@
-import { Modal, Tabs, Typography } from '@douyinfe/semi-ui'
+import { Modal, Tabs } from '@douyinfe/semi-ui'
 import {
   IconSetting,
   IconClose,
@@ -13,7 +13,6 @@ import SettingSettingTodoComponent from './setting-setting-todo-component'
 import SettingThemeColorComponent from './setting-theme-color-component'
 import styles from './styles.module.css'
 const { TabPane } = Tabs
-const { Title } = Typography
 export default function SettingComponent({ visible, changeVisible }) {
   // 关闭弹框
   const closeModal = () => changeVisible(false)
@@ -92,11 +91,6 @@ export default function SettingComponent({ visible, changeVisible }) {
               <div
                 className={`overflow-y-auto max-h-96 ${styles['setting-list']}`}
               >
-                <div className="pb-2">
-                  <Title type="secondary" heading={6}>
-                    {node.label}
-                  </Title>
-                </div>
                 {node.content}
               </div>
             </TabPane>
