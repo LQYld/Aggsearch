@@ -1,0 +1,9 @@
+.primary-color{
+  color: var(--primary)
+}
+
+.no-checked > span{
+  background: var(--semi-color-tertiary-light-default);
+  border: 1px solid var(--semi-color-tertiary-light-active);
+  border-radius: 3px;
+}
