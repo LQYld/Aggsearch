@@ -9,15 +9,19 @@ import {
   SimpleIconsBaidu,
   CibSogou,
   SimpleIconsMicrosoftbing,
-  SimpleIconsGooglechrome
+  SimpleIconsGooglechrome,
+  FluentCodeCircle20Filled,
+  ClarityBetaSolid
 } from './enum'
 import { useState } from 'react'
 import styles from './styles.module.css'
 const { Title } = Typography
 
 const iconClassName = `w-7 h-7 ${styles['primary-color']}`
+const betaIconClassName = `w-7 h-7 ${styles['red-color']}`
 const SEARCH_LOGO_ICON = {
   Baidu: <SimpleIconsBaidu className={iconClassName} />,
+  DEVSBaidu: <FluentCodeCircle20Filled className={iconClassName} />,
   Sogou: <CibSogou className={iconClassName} />,
   Bing: <SimpleIconsMicrosoftbing className={iconClassName} />,
   Google: <SimpleIconsGooglechrome className={iconClassName} />
@@ -27,22 +31,32 @@ export default function SettingSearchSettingComponent() {
     {
       label: 'Baidu',
       value: 'Baidu',
-      checked: false
+      checked: false,
+      isBeta: false
+    },
+    {
+      label: 'DEVS Baidu',
+      value: 'DEVSBaidu',
+      checked: false,
+      isBeta: true
     },
     {
       label: 'Sogou',
       value: 'Sogou',
-      checked: false
+      checked: false,
+      isBeta: false
     },
     {
       label: 'Bing',
       value: 'Bing',
-      checked: false
+      checked: false,
+      isBeta: false
     },
     {
       label: 'Google',
       value: 'Google',
-      checked: false
+      checked: false,
+      isBeta: false
     }
   ])
   const searchItemOnChange = (event, index) => {
@@ -60,16 +74,18 @@ export default function SettingSearchSettingComponent() {
       </div>
       <div>
         <Title type="secondary" heading={6}>
-          {'Normal search'}
+          {'Search Engines'}
         </Title>
       </div>
       <Divider dashed={true} margin="12px" />
       <CheckboxGroup type="pureCard">
-        <div className="flex flex-wrap justify-between">
+        <div className="flex flex-wrap">
           {searchList.map((node, nodeIndex) => {
             return (
               <div
-                className={`mb-3 ${node.checked ? '' : styles['no-checked']}`}
+                className={`mb-3 ${node.checked ? '' : styles['no-checked']} ${
+                  (nodeIndex + 1) % 3 === 0 ? '' : 'mr-2.5'
+                }`}
                 key={`setting_search_component_searchList_${nodeIndex}`}
               >
                 <Checkbox
@@ -78,9 +94,14 @@ export default function SettingSearchSettingComponent() {
                   checked={node.checked}
                   onChange={(event) => searchItemOnChange(event, nodeIndex)}
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center relative">
                     <div>{SEARCH_LOGO_ICON[node.value]}</div>
                     <div className={`ml-4`}>{node.label}</div>
+                    {node.isBeta && (
+                      <div className={`absolute -top-3 left-full`}>
+                        <ClarityBetaSolid className={betaIconClassName} />
+                      </div>
+                    )}
                   </div>
                 </Checkbox>
               </div>
@@ -88,12 +109,6 @@ export default function SettingSearchSettingComponent() {
           })}
         </div>
       </CheckboxGroup>
-      <Divider dashed={true} margin="12px" />
-      <div>
-        <Title type="secondary" heading={6}>
-          {'Developer Search'}
-        </Title>
-      </div>
     </div>
   )
 }

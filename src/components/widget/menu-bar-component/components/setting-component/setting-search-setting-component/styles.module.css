@@ -2,6 +2,10 @@
   color: var(--primary)
 }
 
+.red-color{
+  color: #DC2626;
+}
+
 .no-checked > span{
   background: var(--semi-color-tertiary-light-default);
   border: 1px solid var(--semi-color-tertiary-light-active);
