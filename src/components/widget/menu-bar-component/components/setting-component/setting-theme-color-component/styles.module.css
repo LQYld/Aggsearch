@@ -1,0 +1,20 @@
+.no-checked > span{
+  background: var(--semi-color-tertiary-light-default);
+  border: 1px solid var(--semi-color-tertiary-light-active);
+  border-radius: 3px;
+}
+
+.theme-box{
+  padding: 12px;
+  width: 70px;
+  height: 30px;
+  font-size: 12px;
+  background: var(--primary);
+  transition: transform .1s,-webkit-transform .1s;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.theme-box-list:hover{
+  transform: scale(1.05);
+}
