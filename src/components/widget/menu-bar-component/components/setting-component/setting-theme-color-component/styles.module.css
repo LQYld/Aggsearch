@@ -6,8 +6,8 @@
 
 .theme-box{
   padding: 12px;
-  width: 150px;
-  height: 60px;
+  width: 70px;
+  height: 30px;
   font-size: 12px;
   background: var(--primary);
   transition: transform .1s,-webkit-transform .1s;

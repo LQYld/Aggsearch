@@ -1,9 +1,15 @@
-import { Typography, Divider } from '@douyinfe/semi-ui'
+import { Typography, Divider, Banner } from '@douyinfe/semi-ui'
 import styles from './styles.module.css'
 const { Title } = Typography
 export default function SettingThemeColorComponent() {
   return (
     <div>
+      <div className="mb-2">
+        <Banner
+          type="warning"
+          description="This feature is currently under construction and cannot be used normally"
+        />
+      </div>
       <div>
         <Title type="secondary" heading={6}>
           {'Current settings'}
