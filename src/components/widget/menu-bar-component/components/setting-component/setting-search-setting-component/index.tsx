@@ -69,7 +69,7 @@ export default function SettingSearchSettingComponent() {
       <div className="mb-2">
         <Banner
           type="info"
-          description="A pre-released version is available."
+          description="The Beta label indicates that it is still in the development stage and has not yet been officially released."
         />
       </div>
       <div>
