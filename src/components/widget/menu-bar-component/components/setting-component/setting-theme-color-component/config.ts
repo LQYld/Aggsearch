@@ -42,7 +42,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-red-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 5,
     darkNum: ''
   },
   {
@@ -88,7 +88,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-pink-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 4,
     darkNum: ''
   },
   {
@@ -134,7 +134,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-purple-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 3,
     darkNum: ''
   },
   {
@@ -180,7 +180,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-violet-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 3,
     darkNum: ''
   },
   {
@@ -226,7 +226,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-indigo-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 3,
     darkNum: ''
   },
   {
@@ -272,7 +272,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-blue-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 4,
     darkNum: ''
   },
   {
@@ -318,7 +318,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-light-blue-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 5,
     darkNum: ''
   },
   {
@@ -364,7 +364,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-cyan-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 5,
     darkNum: ''
   },
   {
@@ -410,7 +410,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-teal-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 6,
     darkNum: ''
   },
   {
@@ -456,7 +456,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-green-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 6,
     darkNum: ''
   },
   {
@@ -502,7 +502,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-light-green-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 6,
     darkNum: ''
   },
   {
@@ -548,7 +548,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-lime-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 7,
     darkNum: ''
   },
   {
@@ -594,7 +594,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-yellow-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 7,
     darkNum: ''
   },
   {
@@ -640,7 +640,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-amber-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 7,
     darkNum: ''
   },
   {
@@ -686,7 +686,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-orange-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 6,
     darkNum: ''
   },
   {
@@ -732,7 +732,7 @@ export const colorConfigList = [
         value: 'rgba(var(--semi-grey-9), 1)'
       }
     ],
-    lightNum: '',
+    lightNum: 4,
     darkNum: ''
   }
 ]

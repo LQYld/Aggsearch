@@ -4,10 +4,20 @@
   border-radius: 3px;
 }
 
+.base-box{
+  padding: 4px;
+  width: 96px;
+  height: 36px;
+}
+
+.base-box:hover{
+  transform: scale(1.05);
+  cursor:pointer;
+  box-sizing: border-box;
+  box-shadow: 0 0 0 3px #fff;
+}
+
 .theme-box{
-  padding: 12px;
-  width: 70px;
-  height: 30px;
   font-size: 12px;
   background: var(--primary);
   transition: transform .1s,-webkit-transform .1s;
@@ -17,4 +27,9 @@
 
 .theme-box-list:hover{
   transform: scale(1.05);
+}
+
+.color-list{
+  display: flex;
+  flex-wrap: wrap;
 }
