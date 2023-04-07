@@ -1,4 +1,4 @@
-import { Modal, Tabs } from '@douyinfe/semi-ui'
+import { Modal, Tabs, Toast } from '@douyinfe/semi-ui'
 import {
   IconSetting,
   IconClose,
@@ -16,6 +16,14 @@ const { TabPane } = Tabs
 export default function SettingComponent({ visible, changeVisible }) {
   // 关闭弹框
   const closeModal = () => changeVisible(false)
+  // 确定设置
+  const setUp = () => {
+    Toast.success({
+      content: 'Settings updated successfully',
+      duration: 3
+    })
+    closeModal()
+  }
   // tab栏设置
   const tabList = [
     {
@@ -59,7 +67,7 @@ export default function SettingComponent({ visible, changeVisible }) {
     <div className="flex items-center w-full justify-end">
       <div
         className={`${styles['btn']} ${styles['btn-primary']} mr-4`}
-        onClick={closeModal}
+        onClick={setUp}
       >
         <p>Set up</p>
       </div>
