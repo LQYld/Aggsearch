@@ -10,6 +10,7 @@ import {
 } from '@douyinfe/semi-icons/lib/es'
 import './styles.css'
 import { useState } from 'react'
+import { UnderConstructionWarning } from '@/utils'
 export default function MenuBarComponent() {
   const [visible, setVisible] = useState(false)
   const changeVisible = (bool: boolean) => {
@@ -26,7 +27,11 @@ export default function MenuBarComponent() {
           </article>
         }
       >
-        <IconLanguage className="primary-color" size={size} />
+        <IconLanguage
+          className="primary-color"
+          size={size}
+          onClick={() => UnderConstructionWarning()}
+        />
       </Tooltip>
     ),
     () => (
@@ -37,7 +42,11 @@ export default function MenuBarComponent() {
           </article>
         }
       >
-        <IconSun className="primary-color" size={size} />
+        <IconSun
+          className="primary-color"
+          size={size}
+          onClick={() => UnderConstructionWarning()}
+        />
       </Tooltip>
     ),
     () => (
@@ -63,7 +72,11 @@ export default function MenuBarComponent() {
           </article>
         }
       >
-        <IconHistory className="primary-color" size={size} />
+        <IconHistory
+          className="primary-color"
+          size={size}
+          onClick={() => UnderConstructionWarning()}
+        />
       </Tooltip>
     ),
     () => (

@@ -31,7 +31,7 @@ export default function SettingSearchSettingComponent() {
     {
       label: 'Baidu',
       value: 'Baidu',
-      checked: false,
+      checked: true,
       isBeta: false
     },
     {
@@ -59,10 +59,16 @@ export default function SettingSearchSettingComponent() {
       isBeta: false
     }
   ])
+  const [checkSearchList, setCheckSearchList] = useState(
+    searchList.filter((item) => item.checked).map((item) => item.value)
+  )
   const searchItemOnChange = (event, index) => {
     const copySearchList = JSON.parse(JSON.stringify(searchList))
     copySearchList[index].checked = event.target.checked
     setSearchList(copySearchList)
+    setCheckSearchList(
+      copySearchList.filter((item) => item.checked).map((item) => item.value)
+    )
   }
   return (
     <div>
@@ -78,7 +84,7 @@ export default function SettingSearchSettingComponent() {
         </Title>
       </div>
       <Divider dashed={true} margin="12px" />
-      <CheckboxGroup type="pureCard">
+      <CheckboxGroup type="pureCard" value={checkSearchList}>
         <div className="flex flex-wrap">
           {searchList.map((node, nodeIndex) => {
             return (
