@@ -44,7 +44,7 @@ export default function SearchCenterComponent() {
           <input
             type="text"
             className={`${styles['form-input']}`}
-            placeholder="Please enter the search content"
+            placeholder={`Baidu: Please enter the search content`}
             onInput={(event) => handleSearchEvent(event)}
           />
         </div>

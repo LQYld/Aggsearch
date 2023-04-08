@@ -18,3 +18,5 @@ export const UnderConstructionWarning = () => {
     duration: 3
   })
 }
+// 获取当天日期
+export const getDateOfTheDay = () => dayjs().format('YYYY-MM-DD')
