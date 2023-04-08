@@ -5,17 +5,30 @@ import Clock from '@/components/widget/clock-component'
 import Todo from '@/components/widget/todo-component'
 import styles from './styles.module.css'
 export default function MenuTabComponent() {
-  const [checked, setChecked] = useState(RADIO_TYPE.WEATHER)
+  const [checked, setChecked] = useState(RADIO_TYPE.CLOCK)
   const [weatherValue, setWeatherValue] = useState<any>(null)
   // 获取 天气情况
-  const getColorfulCLoudWeather = async () => {
+  const getColorfulCLoudWeather = async (
+    longitude = 106.55,
+    latitude = 29.57
+  ) => {
     const resJsonFormat = await fetch(
-      `/api/colorfulCloudWeather?longitude=106.55&latitude=29.57`
+      `/api/colorfulCloudWeather?longitude=${longitude}&latitude=${latitude}`
     )
     const response = await resJsonFormat.json()
     setWeatherValue(response || {})
   }
   useEffect(() => {
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(function (position) {
+    //     const {
+    //       coords: { latitude, longitude }
+    //     } = position
+    //     getColorfulCLoudWeather(longitude, latitude)
+    //   })
+    // } else {
+    //   getColorfulCLoudWeather()
+    // }
     getColorfulCLoudWeather()
   }, [])
   const handlerTabClick = (type: RADIO_TYPE) => {
