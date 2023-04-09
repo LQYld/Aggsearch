@@ -8,10 +8,13 @@ import {
   Toast
 } from '@douyinfe/semi-ui'
 import { IconPlusCircle, IconMinusCircle } from '@douyinfe/semi-icons/lib/es'
+import { currentTodoItem, localStorageCurrentTodoItemName } from '@/jotai'
+import type { ITodoList } from '@/jotai/types'
+import { useAtom } from 'jotai'
 import styles from './styles.module.css'
 const { Title, Text } = Typography
 export default function SettingSettingTodoComponent() {
-  const [list, setList] = useState([])
+  const [list, setList] = useAtom(currentTodoItem)
   const updateList = (index = undefined) => {
     let newList
     const copyList = JSON.parse(JSON.stringify(list))
@@ -24,13 +27,17 @@ export default function SettingSettingTodoComponent() {
       if (newInputValue) {
         newList = copyList.concat({
           value: newInputValue,
-          finish: false
+          checked: false
         })
       } else {
         return addWarning()
       }
     }
     setList(newList)
+    localStorage.setItem(
+      localStorageCurrentTodoItemName,
+      JSON.stringify(newList)
+    )
   }
   const [inputValue, setInputValue] = useState('')
   const handleInputChange = (value) => {
@@ -68,7 +75,7 @@ export default function SettingSettingTodoComponent() {
         >
           <List
             className={styles['todo-list']}
-            dataSource={list}
+            dataSource={list as ITodoList[]}
             split={false}
             size="small"
             style={{
@@ -87,7 +94,7 @@ export default function SettingSettingTodoComponent() {
                   style={{ marginRight: 4 }}
                   onClick={() => updateList(index)}
                 />
-                <Text delete={item.finish}>{item.value}</Text>
+                <Text delete={item.checked}>{item.value}</Text>
               </div>
             )}
           />

@@ -56,7 +56,7 @@ export default function SettingComponent({ visible, changeVisible }) {
       </div>
       <div
         className={`${styles.header} h-full flex items-center cursor-pointer`}
-        onClick={closeModal}
+        onClick={setUp}
       >
         <IconClose size={'extra-large'} />
       </div>
@@ -69,14 +69,14 @@ export default function SettingComponent({ visible, changeVisible }) {
         className={`${styles['btn']} ${styles['btn-primary']} mr-4`}
         onClick={setUp}
       >
-        <p>Set up</p>
+        <p>Close</p>
       </div>
-      <div
+      {/* <div
         className={`${styles['btn']} ${styles['btn-secondary']}`}
         onClick={closeModal}
       >
         <p>Cancel</p>
-      </div>
+      </div> */}
     </div>
   )
   // 主体

@@ -25,6 +25,7 @@ specifiers:
   jest: ^29.5.0
   jest-environment-jsdom: ^29.5.0
   jinrishici: ^1.0.6
+  jotai: ^2.0.3
   lint-staged: ^13.1.2
   lodash: ^4.17.21
   next: 13.2.3
@@ -55,6 +56,7 @@ dependencies:
   eslint: registry.npmmirror.com/eslint/8.35.0
   eslint-config-next: registry.npmmirror.com/eslint-config-next/13.2.3_ycpbpc6yetojsgtrx3mwntkhsu
   jinrishici: registry.npmmirror.com/jinrishici/1.0.6
+  jotai: registry.npmmirror.com/jotai/2.0.3_react@18.2.0
   lint-staged: registry.npmmirror.com/lint-staged/13.2.0
   lodash: registry.npmmirror.com/lodash/4.17.21
   next: registry.npmmirror.com/next/13.2.3_biqbaboplfbrettd7655fr4n2y
@@ -5326,6 +5328,21 @@ packages:
     version: 1.18.2
     hasBin: true
     dev: true
+
+  registry.npmmirror.com/jotai/2.0.3_react@18.2.0:
+    resolution: {integrity: sha512-MMjhSPAL3RoeZD9WbObufRT2quThEAEknHHridf2ma8Ml7ZVQmUiHk0ssdbR3F0h3kcwhYqSGJ59OjhPge7RRg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/jotai/-/jotai-2.0.3.tgz}
+    id: registry.npmmirror.com/jotai/2.0.3
+    name: jotai
+    version: 2.0.3
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: registry.npmmirror.com/react/18.2.0
+    dev: false
 
   registry.npmmirror.com/js-sdsl/4.4.0:
     resolution: {integrity: sha512-FfVSdx6pJ41Oa+CF7RDaFmTnCaFhua+SNYQX74riGOpl96x+2jQCqEfQ2bnXu/5DPCqlRuiqyvTJM0Qjz26IVg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/js-sdsl/-/js-sdsl-4.4.0.tgz}
