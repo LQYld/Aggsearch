@@ -1,5 +1,5 @@
 .todo-list {
-  padding: 10px;
+  padding: 0 10px;
   margin: auto;
   width: 100%; 
   font-size: 20px;
@@ -113,6 +113,15 @@
 .todo-state:checked ~ .todo-icon .todo-circle { animation-name: explode; }
 
 
-html { background: #ddd; }
-html { display: flex; height: 100%; }
-body { margin: auto; width: 100%; }
+/* html { background: #ddd; } */
+
+/* html { display: flex; height: 100%; } */
+
+/* body { margin: auto; width: 100%; } */
+
+.no-empty{
+  font-size: 14px;
+  text-align: center;
+  color: var(--grey-dark);
+  cursor: pointer;
+}

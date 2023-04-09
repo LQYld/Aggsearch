@@ -1,11 +1,16 @@
 import { useRef, useState, useEffect } from 'react'
 import { throttle } from 'lodash'
+import { SEARCH_URL } from './enum'
+import { currentEngine } from '@/jotai'
+import type { ICurrentSearch } from '@/jotai/types'
+import { useAtom } from 'jotai'
 import styles from './styles.module.css'
 interface IResponse extends Promise<any> {
   g?: unknown[]
 }
 export default function SearchCenterComponent() {
   const [searchHint, setSearchHint] = useState([])
+  const [currentSearch] = useAtom(currentEngine)
   const inputValue = useRef('')
   const handleSearchEvent = throttle(async (event) => {
     const value = event.target.value
@@ -22,10 +27,26 @@ export default function SearchCenterComponent() {
   }, 100)
   const handleSearchBtnClick = () => {
     if (!inputValue.current) return
-    window.open(`https://www.baidu.com/s?ie=utf-8&wd=${inputValue.current}`)
+    window.open(
+      `${
+        SEARCH_URL[
+          (currentSearch as ICurrentSearch[]).filter((item) => item.checked)[0]
+            .value
+        ]
+      }${inputValue.current}`
+    )
+    setSearchHint([])
   }
   const handleSearchHintItem = (value: string) => {
-    window.open(`https://www.baidu.com/s?ie=utf-8&wd=${value}`)
+    window.open(
+      `${
+        SEARCH_URL[
+          (currentSearch as ICurrentSearch[]).filter((item) => item.checked)[0]
+            .value
+        ]
+      }${value}`
+    )
+    setSearchHint([])
   }
   const [languageArts, setLanguageArts] = useState<any>(null)
   // 获取 每日语言艺术
@@ -44,7 +65,11 @@ export default function SearchCenterComponent() {
           <input
             type="text"
             className={`${styles['form-input']}`}
-            placeholder={`Baidu: Please enter the search content`}
+            placeholder={`${[
+              (currentSearch as ICurrentSearch[]).filter(
+                (item) => item.checked
+              )[0].label
+            ]}: Please enter the search content`}
             onInput={(event) => handleSearchEvent(event)}
           />
         </div>

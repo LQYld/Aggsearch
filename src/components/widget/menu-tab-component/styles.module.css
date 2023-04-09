@@ -71,7 +71,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 200px;
+
+  /* min-height: 200px; */
+  
   border-radius: 0 0 10px 10px;
   box-shadow: var(--shadow);
   grid-column: 2 / 3;

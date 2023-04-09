@@ -13,6 +13,9 @@ import {
   FluentCodeCircle20Filled,
   ClarityBetaSolid
 } from './enum'
+import { currentEngine, localStorageCurrentEngineName } from '@/jotai'
+import type { ICurrentSearch } from '@/jotai/types'
+import { useAtom } from 'jotai'
 import { useState } from 'react'
 import styles from './styles.module.css'
 const { Title } = Typography
@@ -21,51 +24,33 @@ const iconClassName = `w-7 h-7 ${styles['primary-color']}`
 const betaIconClassName = `w-7 h-7 ${styles['red-color']}`
 const SEARCH_LOGO_ICON = {
   Baidu: <SimpleIconsBaidu className={iconClassName} />,
-  DEVSBaidu: <FluentCodeCircle20Filled className={iconClassName} />,
+  DEVS_Baidu: <FluentCodeCircle20Filled className={iconClassName} />,
   Sogou: <CibSogou className={iconClassName} />,
   Bing: <SimpleIconsMicrosoftbing className={iconClassName} />,
   Google: <SimpleIconsGooglechrome className={iconClassName} />
 }
 export default function SettingSearchSettingComponent() {
-  const [searchList, setSearchList] = useState([
-    {
-      label: 'Baidu',
-      value: 'Baidu',
-      checked: true,
-      isBeta: false
-    },
-    {
-      label: 'DEVS Baidu',
-      value: 'DEVSBaidu',
-      checked: false,
-      isBeta: true
-    },
-    {
-      label: 'Sogou',
-      value: 'Sogou',
-      checked: false,
-      isBeta: false
-    },
-    {
-      label: 'Bing',
-      value: 'Bing',
-      checked: false,
-      isBeta: false
-    },
-    {
-      label: 'Google',
-      value: 'Google',
-      checked: false,
-      isBeta: false
-    }
-  ])
+  const [searchList, setSearchList] = useAtom(currentEngine)
   const [checkSearchList, setCheckSearchList] = useState(
-    searchList.filter((item) => item.checked).map((item) => item.value)
+    (searchList as ICurrentSearch[])
+      .filter((item) => item.checked)
+      .map((item) => item.value)
   )
   const searchItemOnChange = (event, index) => {
-    const copySearchList = JSON.parse(JSON.stringify(searchList))
+    const copySearchList = JSON.parse(
+      JSON.stringify(
+        (searchList as ICurrentSearch[]).map((item) => ({
+          ...item,
+          checked: false
+        }))
+      )
+    )
     copySearchList[index].checked = event.target.checked
     setSearchList(copySearchList)
+    localStorage.setItem(
+      localStorageCurrentEngineName,
+      JSON.stringify(copySearchList)
+    )
     setCheckSearchList(
       copySearchList.filter((item) => item.checked).map((item) => item.value)
     )
@@ -86,7 +71,7 @@ export default function SettingSearchSettingComponent() {
       <Divider dashed={true} margin="12px" />
       <CheckboxGroup type="pureCard" value={checkSearchList}>
         <div className="flex flex-wrap">
-          {searchList.map((node, nodeIndex) => {
+          {(searchList as ICurrentSearch[]).map((node, nodeIndex) => {
             return (
               <div
                 className={`mb-3 ${node.checked ? '' : styles['no-checked']} ${

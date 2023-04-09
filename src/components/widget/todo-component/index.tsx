@@ -1,26 +1,19 @@
-import { useState } from 'react'
+import { currentTodoItem, localStorageCurrentTodoItemName } from '@/jotai'
+import { IconInbox } from '@douyinfe/semi-icons/lib/es'
+import { useAtom } from 'jotai'
+import type { ITodoList } from '@/jotai/types'
 import './styles.css'
-
 export default function TodoComponent() {
   const stopColor = '#b1a8fe'
-  const [todoList, setTodoList] = useState([
-    {
-      checked: false,
-      value: 'Do a very important task'
-    },
-    {
-      checked: true,
-      value: 'Another important task'
-    },
-    {
-      checked: false,
-      value: 'Not so important task'
-    }
-  ])
+  const [todoList, setTodoList] = useAtom(currentTodoItem)
   const updateToDoItemChange = (index) => {
     const copyTodoList = JSON.parse(JSON.stringify(todoList))
     copyTodoList[index].checked = !copyTodoList[index].checked
     setTodoList(copyTodoList)
+    localStorage.setItem(
+      localStorageCurrentTodoItemName,
+      JSON.stringify(copyTodoList)
+    )
   }
   return (
     <div className="relative">
@@ -69,7 +62,7 @@ export default function TodoComponent() {
         </defs>
       </svg>
       <div className="todo-list">
-        {todoList.map((node, nodeIndex) => {
+        {(todoList as ITodoList[]).map((node, nodeIndex) => {
           return (
             <label className="todo" key={`todo_component_${nodeIndex}`}>
               <input
@@ -97,6 +90,14 @@ export default function TodoComponent() {
             </label>
           )
         })}
+        {todoList.length <= 0 && (
+          <div className="no-empty">
+            <div>
+              <IconInbox size="extra-large" />
+            </div>
+            <div>No data available today.</div>
+          </div>
+        )}
       </div>
     </div>
   )
