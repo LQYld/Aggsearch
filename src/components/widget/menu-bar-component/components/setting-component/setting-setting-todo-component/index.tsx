@@ -8,7 +8,11 @@ import {
   Toast
 } from '@douyinfe/semi-ui'
 import { IconPlusCircle, IconMinusCircle } from '@douyinfe/semi-icons/lib/es'
-import { currentTodoItem, localStorageCurrentTodoItemName } from '@/jotai'
+import {
+  currentTodoItem,
+  localStorageCurrentTodoItemName,
+  isBrowser
+} from '@/jotai'
 import type { ITodoList } from '@/jotai/types'
 import { useAtom } from 'jotai'
 import styles from './styles.module.css'
@@ -34,10 +38,12 @@ export default function SettingSettingTodoComponent() {
       }
     }
     setList(newList)
-    window.localStorage.setItem(
-      localStorageCurrentTodoItemName,
-      JSON.stringify(newList)
-    )
+    if (isBrowser()) {
+      window.localStorage.setItem(
+        localStorageCurrentTodoItemName,
+        JSON.stringify(newList)
+      )
+    }
   }
   const [inputValue, setInputValue] = useState('')
   const handleInputChange = (value) => {

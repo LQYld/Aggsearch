@@ -1,4 +1,8 @@
-import { currentTodoItem, localStorageCurrentTodoItemName } from '@/jotai'
+import {
+  currentTodoItem,
+  localStorageCurrentTodoItemName,
+  isBrowser
+} from '@/jotai'
 import { IconInbox } from '@douyinfe/semi-icons/lib/es'
 import { useAtom } from 'jotai'
 import type { ITodoList } from '@/jotai/types'
@@ -10,10 +14,12 @@ export default function TodoComponent() {
     const copyTodoList = JSON.parse(JSON.stringify(todoList))
     copyTodoList[index].checked = !copyTodoList[index].checked
     setTodoList(copyTodoList)
-    window.localStorage.setItem(
-      localStorageCurrentTodoItemName,
-      JSON.stringify(copyTodoList)
-    )
+    if (isBrowser()) {
+      window.localStorage.setItem(
+        localStorageCurrentTodoItemName,
+        JSON.stringify(copyTodoList)
+      )
+    }
   }
   return (
     <div className="relative">

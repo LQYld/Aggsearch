@@ -13,7 +13,11 @@ import {
   FluentCodeCircle20Filled,
   ClarityBetaSolid
 } from './enum'
-import { currentEngine, localStorageCurrentEngineName } from '@/jotai'
+import {
+  currentEngine,
+  localStorageCurrentEngineName,
+  isBrowser
+} from '@/jotai'
 import type { ICurrentSearch } from '@/jotai/types'
 import { useAtom } from 'jotai'
 import { useState } from 'react'
@@ -47,10 +51,12 @@ export default function SettingSearchSettingComponent() {
     )
     copySearchList[index].checked = event.target.checked
     setSearchList(copySearchList)
-    localStorage.setItem(
-      localStorageCurrentEngineName,
-      JSON.stringify(copySearchList)
-    )
+    if (isBrowser()) {
+      window.localStorage.setItem(
+        localStorageCurrentEngineName,
+        JSON.stringify(copySearchList)
+      )
+    }
     setCheckSearchList(
       copySearchList.filter((item) => item.checked).map((item) => item.value)
     )
