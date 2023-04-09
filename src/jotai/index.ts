@@ -1,5 +1,6 @@
 import { atom } from 'jotai'
 import { getDateOfTheDay } from '@/utils'
+export const isBrowser = () => typeof window !== 'undefined'
 // 当前初始化时间
 export const currentDateTime = getDateOfTheDay()
 // 当前搜索引擎本地存储键名
@@ -7,9 +8,8 @@ export const localStorageCurrentEngineName = `currentEngine`
 // 当前todo本地存储键名
 export const localStorageCurrentTodoItemName = `${currentDateTime}_currentTodoItem`
 // 当前设置的搜索引擎
-const localStorageCurrentEngineValue = window.localStorage.getItem(
-  localStorageCurrentEngineName
-)
+const localStorageCurrentEngineValue =
+  isBrowser() && window.localStorage.getItem(localStorageCurrentEngineName)
 export const currentEngine = atom(
   localStorageCurrentEngineValue
     ? JSON.parse(localStorageCurrentEngineValue)
@@ -47,9 +47,8 @@ export const currentEngine = atom(
       ]
 )
 // 当前设置的todo项
-const localStorageCurrentTodoItemValue = window.localStorage.getItem(
-  localStorageCurrentTodoItemName
-)
+const localStorageCurrentTodoItemValue =
+  isBrowser() && window.localStorage.getItem(localStorageCurrentTodoItemName)
 export const currentTodoItem = atom(
   localStorageCurrentTodoItemValue
     ? JSON.parse(localStorageCurrentTodoItemValue)

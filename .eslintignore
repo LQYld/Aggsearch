@@ -2,3 +2,4 @@
 **/*.md
 /coverage
 /dist
+.next
