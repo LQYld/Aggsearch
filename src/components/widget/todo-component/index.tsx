@@ -10,7 +10,7 @@ export default function TodoComponent() {
     const copyTodoList = JSON.parse(JSON.stringify(todoList))
     copyTodoList[index].checked = !copyTodoList[index].checked
     setTodoList(copyTodoList)
-    localStorage.setItem(
+    window.localStorage.setItem(
       localStorageCurrentTodoItemName,
       JSON.stringify(copyTodoList)
     )

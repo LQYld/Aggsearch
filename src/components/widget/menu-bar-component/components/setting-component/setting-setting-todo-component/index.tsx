@@ -34,7 +34,7 @@ export default function SettingSettingTodoComponent() {
       }
     }
     setList(newList)
-    localStorage.setItem(
+    window.localStorage.setItem(
       localStorageCurrentTodoItemName,
       JSON.stringify(newList)
     )

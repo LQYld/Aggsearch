@@ -7,7 +7,7 @@ export const localStorageCurrentEngineName = `currentEngine`
 // 当前todo本地存储键名
 export const localStorageCurrentTodoItemName = `${currentDateTime}_currentTodoItem`
 // 当前设置的搜索引擎
-const localStorageCurrentEngineValue = localStorage.getItem(
+const localStorageCurrentEngineValue = window.localStorage.getItem(
   localStorageCurrentEngineName
 )
 export const currentEngine = atom(
@@ -47,7 +47,7 @@ export const currentEngine = atom(
       ]
 )
 // 当前设置的todo项
-const localStorageCurrentTodoItemValue = localStorage.getItem(
+const localStorageCurrentTodoItemValue = window.localStorage.getItem(
   localStorageCurrentTodoItemName
 )
 export const currentTodoItem = atom(
