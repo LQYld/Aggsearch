@@ -19,17 +19,17 @@ export default function MenuTabComponent() {
     setWeatherValue(response || {})
   }
   useEffect(() => {
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(function (position) {
-    //     const {
-    //       coords: { latitude, longitude }
-    //     } = position
-    //     getColorfulCLoudWeather(longitude, latitude)
-    //   })
-    // } else {
-    //   getColorfulCLoudWeather()
-    // }
-    getColorfulCLoudWeather()
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const {
+          coords: { latitude, longitude }
+        } = position
+        getColorfulCLoudWeather(longitude, latitude)
+      })
+    } else {
+      getColorfulCLoudWeather()
+    }
+    // getColorfulCLoudWeather()
   }, [])
   const handlerTabClick = (type: RADIO_TYPE) => {
     setChecked(type)
