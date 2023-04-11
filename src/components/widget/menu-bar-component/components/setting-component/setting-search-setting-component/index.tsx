@@ -80,14 +80,14 @@ export default function SettingSearchSettingComponent() {
           {(searchList as ICurrentSearch[]).map((node, nodeIndex) => {
             return (
               <div
-                className={`mb-3 ${node.checked ? '' : styles['no-checked']} ${
-                  (nodeIndex + 1) % 3 === 0 ? '' : 'mr-2.5'
-                }`}
+                className={`mb-3 ${
+                  node.checked ? '' : styles['no-checked']
+                } mr-2.5`}
                 key={`setting_search_component_searchList_${nodeIndex}`}
               >
                 <Checkbox
                   value={node.value}
-                  style={{ width: 180 }}
+                  style={{ width: 170 }}
                   checked={node.checked}
                   onChange={(event) => searchItemOnChange(event, nodeIndex)}
                 >
