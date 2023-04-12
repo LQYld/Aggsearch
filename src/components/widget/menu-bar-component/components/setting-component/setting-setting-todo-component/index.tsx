@@ -33,6 +33,7 @@ export default function SettingSettingTodoComponent() {
           value: newInputValue,
           checked: false
         })
+        setInputValue('')
       } else {
         return addWarning()
       }
