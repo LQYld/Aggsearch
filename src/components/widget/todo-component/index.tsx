@@ -101,7 +101,7 @@ export default function TodoComponent() {
             <div>
               <IconInbox size="extra-large" />
             </div>
-            <div>No data available today.</div>
+            <div>No data available today .</div>
           </div>
         )}
       </div>
