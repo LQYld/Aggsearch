@@ -12,9 +12,24 @@ export default function SearchCenterComponent() {
   const [searchHint, setSearchHint] = useState([])
   const [currentSearch] = useAtom(currentEngine)
   const inputValue = useRef('')
+  const [currentInputValue, setCurrentInputValue] = useState('')
   const handleSearchEvent = throttle(async (event) => {
     const value = event.target.value
-    inputValue.current = value
+    const [valueArrayOne, ...valueArrayTwo] = value.split(': ')
+    if (
+      value ===
+      `${
+        (currentSearch as ICurrentSearch[]).filter((item) => item.checked)[0]
+          .label
+      }: `
+    ) {
+      inputValue.current = ''
+      setCurrentInputValue('')
+    } else {
+      inputValue.current = valueArrayTwo.join(': ') || valueArrayOne[0]
+      setCurrentInputValue(valueArrayTwo.join(': ') || valueArrayOne[0])
+    }
+
     if (!value) {
       setSearchHint([])
       return
@@ -71,6 +86,15 @@ export default function SearchCenterComponent() {
               )[0].label
             ]}: Please enter the search content`}
             onInput={(event) => handleSearchEvent(event)}
+            value={`${
+              currentInputValue
+                ? `${
+                    (currentSearch as ICurrentSearch[]).filter(
+                      (item) => item.checked
+                    )[0].label
+                  }: ${currentInputValue}`
+                : ''
+            }`}
           />
         </div>
         <div
