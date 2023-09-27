@@ -34,7 +34,9 @@ export default function SearchCenterComponent() {
       setSearchHint([])
       return
     }
-    const resJsonFormat = await fetch(`/api/searchHintForBaidu?v=${value}`)
+    const resJsonFormat = await fetch(
+      `/api/searchHintForBaidu?v=${inputValue.current}`
+    )
     const response: IResponse = await resJsonFormat.json()
     response.g && inputValue.current
       ? setSearchHint(response.g)
