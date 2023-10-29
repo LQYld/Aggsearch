@@ -13,9 +13,11 @@ export default function SearchCenterComponent() {
   const [currentSearch] = useAtom(currentEngine)
   const inputValue = useRef('')
   const [currentInputValue, setCurrentInputValue] = useState('')
+
   const handleSearchEvent = throttle(async (event) => {
     const value = event.target.value
     const [valueArrayOne, ...valueArrayTwo] = value.split(': ')
+
     if (
       value ===
       `${
@@ -26,8 +28,8 @@ export default function SearchCenterComponent() {
       inputValue.current = ''
       setCurrentInputValue('')
     } else {
-      inputValue.current = valueArrayTwo.join(': ') || valueArrayOne[0]
-      setCurrentInputValue(valueArrayTwo.join(': ') || valueArrayOne[0])
+      inputValue.current = valueArrayTwo.join(': ') || valueArrayOne
+      setCurrentInputValue(valueArrayTwo.join(': ') || valueArrayOne)
     }
 
     if (!value) {
