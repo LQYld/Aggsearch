@@ -5,6 +5,7 @@ import { currentEngine } from '@/jotai'
 import type { ICurrentSearch } from '@/jotai/types'
 import { useAtom } from 'jotai'
 import styles from './styles.module.css'
+
 interface IResponse extends Promise<any> {
   g?: unknown[]
 }
@@ -56,6 +57,11 @@ export default function SearchCenterComponent() {
     )
     setSearchHint([])
   }
+  const handleSearchInputKeyDown = (event) => {
+    if (event.keyCode == 13) {
+      handleSearchBtnClick();
+    }
+  }
   const handleSearchHintItem = (value: string) => {
     window.open(
       `${
@@ -65,6 +71,7 @@ export default function SearchCenterComponent() {
         ]
       }${value}`
     )
+    setCurrentInputValue(`: ${value}`)
     setSearchHint([])
   }
   const [languageArts, setLanguageArts] = useState<any>(null)
@@ -90,6 +97,7 @@ export default function SearchCenterComponent() {
               )[0].label
             ]}: Please enter the search content`}
             onInput={(event) => handleSearchEvent(event)}
+            onKeyDown={(event) => handleSearchInputKeyDown(event)}
             value={`${
               currentInputValue
                 ? `${
