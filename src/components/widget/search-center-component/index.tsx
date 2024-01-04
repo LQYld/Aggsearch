@@ -59,7 +59,7 @@ export default function SearchCenterComponent() {
   }
   const handleSearchInputKeyDown = (event) => {
     if (event.keyCode == 13) {
-      handleSearchBtnClick();
+      handleSearchBtnClick()
     }
   }
   const handleSearchHintItem = (value: string) => {
