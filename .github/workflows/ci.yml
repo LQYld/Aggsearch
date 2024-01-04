@@ -15,7 +15,7 @@ jobs:
           node-version: 16
           cache: 'pnpm'
       - name: Install Deps # 安装项目依赖
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install
 
       - name: run ci # 项目构建
         run: pnpm ci
