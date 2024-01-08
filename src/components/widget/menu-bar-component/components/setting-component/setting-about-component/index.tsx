@@ -44,7 +44,7 @@ export default function SettingAboutComponent() {
             target: '_blank'
           }}
         >
-          LQYld
+          Qingyun119
         </Text>
       </div>
     </div>
