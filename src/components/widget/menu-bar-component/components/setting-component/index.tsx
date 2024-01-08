@@ -10,7 +10,7 @@ import {
 import SettingAboutComponent from './setting-about-component'
 import SettingSearchSettingComponent from './setting-search-setting-component'
 import SettingSettingTodoComponent from './setting-setting-todo-component'
-import SettingThemeColorComponent from './setting-theme-color-component'
+// import SettingThemeColorComponent from './setting-theme-color-component'
 import styles from './styles.module.css'
 const { TabPane } = Tabs
 export default function SettingComponent({ visible, changeVisible }) {
@@ -31,11 +31,11 @@ export default function SettingComponent({ visible, changeVisible }) {
       icon: <IconGlobe />,
       content: <SettingSearchSettingComponent />
     },
-    {
-      label: 'Theme Colors',
-      icon: <IconTemplate />,
-      content: <SettingThemeColorComponent />
-    },
+    // {
+    //   label: 'Theme Colors',
+    //   icon: <IconTemplate />,
+    //   content: <SettingThemeColorComponent />
+    // },
     {
       label: 'Setting Todo',
       icon: <IconCheckList />,

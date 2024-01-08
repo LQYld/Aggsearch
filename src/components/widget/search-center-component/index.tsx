@@ -96,7 +96,7 @@ export default function SearchCenterComponent() {
                 (item) => item.checked
               )[0].label
             ]}: Please enter the search content`}
-            onInput={(event) => handleSearchEvent(event)}
+            onChange={(event) => handleSearchEvent(event)}
             onKeyDown={(event) => handleSearchInputKeyDown(event)}
             value={`${
               currentInputValue

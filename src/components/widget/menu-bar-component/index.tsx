@@ -1,16 +1,16 @@
 import { Tooltip } from '@douyinfe/semi-ui'
 import SettingComponent from './components/setting-component'
 import {
-  IconLanguage,
+  // IconLanguage,
   IconSetting,
-  IconGithubLogo,
-  IconSun,
-  IconMoon,
-  IconHistory
+  IconGithubLogo
+  // IconSun,
+  // IconMoon,
+  // IconHistory
 } from '@douyinfe/semi-icons/lib/es'
 import './styles.css'
 import { useState } from 'react'
-import { UnderConstructionWarning } from '@/utils'
+// import { UnderConstructionWarning } from '@/utils'
 export default function MenuBarComponent() {
   const [visible, setVisible] = useState(false)
   const changeVisible = (bool: boolean) => {
@@ -19,36 +19,36 @@ export default function MenuBarComponent() {
   const size = 'large'
   const goToGithub = () => window.open('https://github.com/LQYld/Aggsearch')
   const menuBarList = [
-    () => (
-      <Tooltip
-        content={
-          <article>
-            <p>Switch to English</p>
-          </article>
-        }
-      >
-        <IconLanguage
-          className="primary-color"
-          size={size}
-          onClick={() => UnderConstructionWarning()}
-        />
-      </Tooltip>
-    ),
-    () => (
-      <Tooltip
-        content={
-          <article>
-            <p>Switch to dark mode</p>
-          </article>
-        }
-      >
-        <IconSun
-          className="primary-color"
-          size={size}
-          onClick={() => UnderConstructionWarning()}
-        />
-      </Tooltip>
-    ),
+    // () => (
+    //   <Tooltip
+    //     content={
+    //       <article>
+    //         <p>Switch to English</p>
+    //       </article>
+    //     }
+    //   >
+    //     <IconLanguage
+    //       className="primary-color"
+    //       size={size}
+    //       onClick={() => UnderConstructionWarning()}
+    //     />
+    //   </Tooltip>
+    // ),
+    // () => (
+    //   <Tooltip
+    //     content={
+    //       <article>
+    //         <p>Switch to dark mode</p>
+    //       </article>
+    //     }
+    //   >
+    //     <IconSun
+    //       className="primary-color"
+    //       size={size}
+    //       onClick={() => UnderConstructionWarning()}
+    //     />
+    //   </Tooltip>
+    // ),
     () => (
       <Tooltip
         content={
@@ -64,21 +64,21 @@ export default function MenuBarComponent() {
         />
       </Tooltip>
     ),
-    () => (
-      <Tooltip
-        content={
-          <article>
-            <p>View update records</p>
-          </article>
-        }
-      >
-        <IconHistory
-          className="primary-color"
-          size={size}
-          onClick={() => UnderConstructionWarning()}
-        />
-      </Tooltip>
-    ),
+    // () => (
+    //   <Tooltip
+    //     content={
+    //       <article>
+    //         <p>View update records</p>
+    //       </article>
+    //     }
+    //   >
+    //     <IconHistory
+    //       className="primary-color"
+    //       size={size}
+    //       onClick={() => UnderConstructionWarning()}
+    //     />
+    //   </Tooltip>
+    // ),
     () => (
       <Tooltip
         content={

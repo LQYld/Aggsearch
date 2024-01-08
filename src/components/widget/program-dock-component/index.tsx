@@ -82,13 +82,6 @@ export default function ProgramDockComponent() {
   return (
     <dl className={styles.content} ref={content}>
       <div className={styles['content-div']}>
-        {/* <dd>😆</dd>
-        <dd>😅</dd>
-        <dd>🤣</dd>
-        <dd>😀</dd>
-        <dd>😅</dd>
-        <dd>😀</dd>
-        <dd>😅</dd> */}
         {logoList.map((el, elIndex) => {
           return (
             <dd
